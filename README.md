@@ -36,6 +36,54 @@ Hi, 大家好，这块是个训练的项目。
    1. 02-04 我们会安排具体的页面给大家，开始进行中
    2. 02-05 我们从training项目中，选出实战的人，加入项目中。 
 
+### 目录说明
+
+#### api
+放置和后台请求相关的信息，如请求地址和域名等
+
+#### common
+放置公用的js和less
+
+#### components
+放置组件
+
+#### pages
+放置页面
+
+#### static
+放置静态资源，这里主要是图片资源
+
+#### store
+Vuex.Store相关
+
+#### unpackage
+uniapp会把打包后的文件放到这里
+
+#### 其余的可以参考uniapp官网的说明
+
+[](https://uniapp.dcloud.io/frame)
+┌─cloudfunctions        云函数目录（阿里云为aliyun，腾讯云为tcb，详见uniCloud）
+│─components            符合vue组件规范的uni-app组件目录
+│  └─comp-a.vue         可复用的a组件
+├─hybrid                存放本地网页的目录，详见
+├─platforms             存放各平台专用页面的目录，详见
+├─pages                 业务页面文件存放的目录
+│  ├─index
+│  │  └─index.vue       index页面
+│  └─list
+│     └─list.vue        list页面
+├─static                存放应用引用静态资源（如图片、视频等）的目录，注意：静态资源只能存放于此
+├─wxcomponents          存放小程序组件的目录，详见
+├─main.js               Vue初始化入口文件
+├─App.vue               应用配置，用来配置App全局样式以及监听 应用生命周期
+├─manifest.json         配置应用名称、appid、logo、版本等打包信息，详见
+└─pages.json            配置页面路由、导航条、选项卡等页面类信息，详见
+
+
+### 样式说明
+请使用less编写样式，里面的单位不要用px，请用rpx，参看：[](https://uniapp.dcloud.io/frame?id=%e5%b0%ba%e5%af%b8%e5%8d%95%e4%bd%8d)
+
+里面的pages/login/index.vue使用了非rpx的单位，这里无视它，后期项目开发使用rpx
 
 
 
