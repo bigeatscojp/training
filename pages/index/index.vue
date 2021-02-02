@@ -3,15 +3,18 @@
 		<image class="logo" src="/static/logo.png"></image>
 		<view class="text-area">
 			<text class="title">{{title}}</text>
+			<loading :is-loading="isLoadList"></loading>
 		</view>
 	</view>
 </template>
 
 <script>
+	import loading from '@/components/loading/loading.vue'
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				isLoadList: true
 			}
 		},
 		onLoad() {
@@ -23,7 +26,7 @@
 	}
 </script>
 
-<style>
+<style lang="less">
 	.content {
 		display: flex;
 		flex-direction: column;
