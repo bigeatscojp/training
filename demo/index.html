@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .logo {
+            width: 30vw;
+        }
+    </style>
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <div id="root">
+        <img class='logo' src="./assets/logo.png" />
+        <p>{{title}}</p>
+        <input type="text" v-model="title" />
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+</body>
+</html>
