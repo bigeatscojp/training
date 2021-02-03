@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{a}}
+		</div>
+		
+		<script type="text/javascript">
+			var message = {a : 'aab'}
+			var vm = new Vue({
+				el: '#app',
+				data: message
+			});
+			
+			vm.$watch('a', function(newVal, oldVal){
+				console.log(newVal, oldVal);
+			});
+			
+			vm.$data.a = "wuhu_qifei"
+		</script>
+	</body>
+</html>
