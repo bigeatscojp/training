@@ -1,0 +1,31 @@
+var vm = new Vue({
+	el   : "#app",	//元素
+	data : data	//值
+});
+
+Object.freeze(vm);	//冻结
+
+vm.watch('a', function(newVal, oldVal)) //观察
+
+
+生命周期
+beforeCreate	//页面创建之前调用生命周期
+
+created		//在实例创建完成后立即被调用
+
+beforeMount	//在挂载开始之前被调用，相关的渲染函数首次被调用
+
+Mounted		//el被新创建的vm.$el替换，挂载成功
+
+beforeUpdate	//数据更新时调用
+
+updated		//组件DOM已更新，组件更新完毕
+
+
+模板语法--插值
+<div v-bind:属性=""></div>
+例:<div v-bind:id="dynamicId"></div>
+   <div v-bind:class="color">test</div>
+
+<p>{{ number + 1 }}</p>
+<p>{{ ok ? 'YES' : 'NO' }}</p>	//TRUE:执行“？”后的代码； FALSE:执行“:”后的代码
