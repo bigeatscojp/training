@@ -14,7 +14,7 @@
 		    el:"#app",
 		    data: {
 		        msg : "hi Vue!",
-		    
+		    },
 			//生命钩子需要写在new Vue时传递的对象内，以属性的方式进行声明
 			beforeCreate:function(){
 				console.log('beforeCreate');
@@ -41,6 +41,8 @@
 		setTimeout(function(){
 			vm.msg = 'changed...';
 		},3000);
+			
+		</script>
 	</head>
 	</body>
 </html>
