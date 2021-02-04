@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>计算属性</title>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <p>原始字符串: {{ text }}</p>
+      <p>反转字符串: {{ reversedText}}</p>
+      <!-- 可以使用 methods 来替代 computed，效果上两个都是一样的
+		 computed 是基于它的依赖缓存，只有相关依赖发生改变时才会重新取值。
+		 methods ，在重新渲染的时候，函数总会重新调用执行。 
+		 可以说使用 computed 性能会更好，但是如果你不希望缓存，你可以使用 methods 属性。-->
+      <p>使用方法后反转字符串: {{ reversedText2() }}</p>
+      <p>{{ site }}</p>
+    </div>
+
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          text: "Hello World!",
+          name: "",
+          url: "",
+        },
+        // 计算属性关键词: computed。
+        computed: {
+          reversedText: function() {
+            return this.text
+              .split("")
+              .reverse()
+              .join("");
+          },
+          site: {
+            // getter
+            get: function() {
+              return this.name + " " + this.url;
+            },
+            // setter
+            set: function(newValue) {
+              var names = newValue.split(" ");
+              this.name = names[0];
+              this.url = names[names.length - 1];
+            },
+          },
+        },
+        methods: {
+          reversedText2: function() {
+            return this.text
+              .split("")
+              .reverse()
+              .join("");
+          },
+        },
+      });
+      vm.site = "百度 www.baidu.com";
+      document.write("name: " + vm.name);
+      document.write("<br>");
+      document.write("url: " + vm.url);
+    </script>
+  </body>
+</html>
