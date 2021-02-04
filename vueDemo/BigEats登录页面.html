@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title></title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div class="main" id="app">
+			
+			<div class="top">
+				<p class="title">携帯番号またはメールアドレス</p><br/>
+				<input class="textBox" v-model="id"/><br/>
+				<p class="title">パスワード</p><br/>
+				<input class="textBox" v-model="password"/><br/>
+			</div>
+			
+			<div class="bottom">
+				<button 
+					type="button" 
+					v-on:click="login()">
+					ログイン
+				</button>
+			</div>
+			
+		</div>
+		
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					id : "",
+					password : ""
+				},
+				methods:{
+					//弹出登录数据
+					login : function () {
+						console.log();
+						alert(this.id);
+						alert(this.password);
+					}
+				}
+			})
+		</script>
+		
+		<style type="text/css">
+			.main{
+			}
+			.top{
+				text-align:center;
+			}
+			.title{
+				font-size: 10px;
+				color: gray;
+			}
+			.textBox{
+			}
+			.bottom{
+				text-align:center;
+			}
+		</style>
+	</body>
+</html>

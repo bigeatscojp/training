@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button-counter></button-counter>
+			<test></test>
+		</div>
+		
+		<script type="text/javascript">
+			//全局注册
+			Vue.component('button-counter', {
+				props: ['title'],
+				data: function () {
+					return{}
+				},
+				template: '<div><h1>h1...</h1></div>',
+				methods:{
+				}
+			})
+			var vm = new Vue({
+				el:"#app",
+				data:{
+				},
+				methods:{
+					clicknow : function (e) {
+						console.log(e);
+					}
+				},
+				//局部组件注册
+				components:{
+					test : {
+						//模板属性
+						template:"<h2>h2....</h2>"
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
