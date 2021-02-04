@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="vue_det">
+      <!-- {{ }} 用于输出对象属性和函数返回值。 -->
+      <h1>Name : {{name}}</h1>
+      <h1>Url : {{url}}</h1>
+      <h1>{{details()}}</h1>
+    </div>
+    <script type="text/javascript">
+      var data = { name: "谷歌", url: "www.google.com", alexa: 10000 };
+      var vm = new Vue({
+        el: "#vue_det",
+        // data 用于定义属性，实例中有三个属性分别为：site、url、alexa。
+        // data: {
+        //     name: "谷歌",
+        //     url: "www.google.com",
+        //     alexa: "10000"
+        // },
+        data: data,
+        // methods 用于定义的函数，可以通过 return 来返回函数值。
+        methods: {
+          details: function() {
+            return "This is " + this.name + ".";
+          },
+        },
+      });
+      document.write(vm.name === data.name); // true
+      document.write("<br>");
+
+      vm.name = "google";
+      document.write(data.name + "<br>"); // google
+
+      data.alexa = 1234;
+      document.write(vm.alexa); // 1234
+      //实例属性与方法 有前缀 $，以便与用户定义的属性区分开来
+      document.write("<br>");
+      document.write(vm.$data === data); // true
+      document.write("<br>");
+      document.write(vm.$el === document.getElementById("vue_det")); // true
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>循环语句</title>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <ol>
+        <!-- v-for 指令需要以 site in sites 形式的特殊语法， sites 是源数据数组并且 site 是数组元素迭代的别名。 -->
+        <li v-for="site in sites">
+          {{ site.name }}
+        </li>
+      </ol>
+
+      <ul>
+        <template v-for="site in sites">
+          <li>{{ site.name }}</li>
+          <li>--------------</li>
+        </template>
+      </ul>
+
+      <ul>
+        <li v-for="value in a">
+          {{ value }}
+        </li>
+      </ul>
+
+      <ul>
+        <li v-for="(value, key) in a">
+          {{ key }} : {{ value }}
+        </li>
+      </ul>
+
+      <ul>
+        <li v-for="(value, key, index) in a">
+          {{ index }}. {{ key }} : {{ value }}
+        </li>
+      </ul>
+
+      <ul>
+        <li v-for="b in 5">
+          {{ b }}
+        </li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      new Vue({
+        el: "#app",
+        data: {
+          sites: [{ name: "Google" }, { name: "Baidu" }, { name: "Taobao" }],
+          a: {
+            Name: "谷歌",
+            Url: "www.google.com",
+            Slogan: "This is google!",
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

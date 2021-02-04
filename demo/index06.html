@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>模板语法/条件判断</title>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 使用 v-html 指令用于输出 html 代码 -->
+      <!-- <div v-html="message"></div> -->
+      <label for="r1">修改颜色</label
+      ><input type="checkbox" v-model="use" id="r1" /> <br /><br />
+      <div v-bind:class="{'class1': use}">
+        v-bind:class 指令
+      </div>
+      <!-- 指令是带有 v- 前缀的特殊属性。 -->
+      <!-- v-if 指令将根据表达式 seen 的值(true 或 false )来决定是否插入 p 元素 -->
+      <!-- 注意：v-else 、v-else-if 必须跟在 v-if 或者 v-else-if之后。 -->
+      <p v-if="seen">可以看到吗？</p>
+      <template v-if="ok">
+        <h1>菜鸟教程</h1>
+        <p>hello world</p>
+      </template>
+      <div v-if="canSeen">
+        可以看到
+      </div>
+      <div v-else>
+        看不到
+      </div>
+      <div v-if="type === 'A'">
+        A
+      </div>
+      <div v-else-if="type === 'B'">
+        B
+      </div>
+      <div v-else-if="type === 'C'">
+        C
+      </div>
+      <div v-else>
+        都不是
+      </div>
+      <!-- 也可以使用 v-show 指令来根据条件展示元素 -->
+      <h1 v-show="show">Show!</h1>
+      <!-- 参数在指令后以冒号指明。例如， v-bind 指令被用来响应地更新 HTML 属性 -->
+      <pre><a v-bind:href="url">谷歌</a></pre>
+    </div>
+
+    <script type="text/javascript">
+      //     new Vue({
+      //       el: '#app',
+      //       data: {
+      //         message: '<h1>hello world</h1>'
+      //       },
+      // })
+      new Vue({
+        el: "#app",
+        data: {
+          use: false,
+          seen: true,
+          ok: true,
+          canSeen: false,
+          type: "C",
+          show: true,
+          url: "www.google.com",
+        },
+      });
+    </script>
+  </body>
+</html>
