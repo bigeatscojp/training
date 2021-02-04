@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="computed_props">
+      <input type="text" v-model="kilometers" /> 千米 =
+      <input type="text" v-model="meters" /> 米
+    </div>
+    <p id="info"></p>
+    <script type="text/javascript">
+      var vm = new Vue({
+        el: "#computed_props",
+        data: {
+          kilometers: 0,
+          meters: 0,
+        },
+        methods: {},
+        computed: {},
+        watch: {
+          kilometers: function (val) {
+            this.kilometers = val;
+            this.meters = this.kilometers * 1000;
+          },
+          meters: function (val) {
+            this.kilometers = val / 1000;
+            this.meters = val;
+          },
+        },
+      });
+      vm.$watch("kilometers", function (newValue, oldValue) {
+        document.getElementById("info").innerHTML =
+          "修改前值为: " + oldValue + "，修改后值为: " + newValue;
+      });
+    </script>
+  </body>
+</html>
