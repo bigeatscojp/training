@@ -61,7 +61,10 @@ uniapp会把打包后的文件放到这里
 
 #### 其余的可以参考uniapp官网的说明
 
-[](https://uniapp.dcloud.io/frame)
+https://uniapp.dcloud.io/frame
+
+
+```
 ┌─cloudfunctions        云函数目录（阿里云为aliyun，腾讯云为tcb，详见uniCloud）
 │─components            符合vue组件规范的uni-app组件目录
 │  └─comp-a.vue         可复用的a组件
@@ -78,10 +81,12 @@ uniapp会把打包后的文件放到这里
 ├─App.vue               应用配置，用来配置App全局样式以及监听 应用生命周期
 ├─manifest.json         配置应用名称、appid、logo、版本等打包信息，详见
 └─pages.json            配置页面路由、导航条、选项卡等页面类信息，详见
+```
+
 
 
 ### 样式说明
-请使用less编写样式，里面的单位不要用px，请用rpx，参看：[](https://uniapp.dcloud.io/frame?id=%e5%b0%ba%e5%af%b8%e5%8d%95%e4%bd%8d)
+请使用less编写样式，里面的单位不要用px，请用rpx，参看：https://uniapp.dcloud.io/frame?id=%e5%b0%ba%e5%af%b8%e5%8d%95%e4%bd%8d
 
 里面的pages/login/index.vue使用了非rpx的单位，这里无视它，后期项目开发使用rpx
 
