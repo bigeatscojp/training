@@ -8,13 +8,12 @@
 	<body>
 		<div id="app">
 			<div class="test" 
-			v-bind:class="[ isActive ? 'active' : '', isGreen ? 'green' : '']" 
-			style="width:200px; height:200px; text-align:center; line-height:200px;">
+				v-bind:class="[ isActive ? 'active' : '', isGreen ? 'green' : '']" 
+				style="width:200px; height:200px; text-align:center; line-height:200px;">
 				htt
 			</div>
 			
-			<div
-			:style="{color:color, fontSize:size, background: isRed ? '#FF0000' : ''}">
+			<div :style="{color:color, fontSize:size, background: isRed ? '#FF0000' : ''}">
 				uuv
 			</div>
 		</div>
@@ -28,7 +27,7 @@
 					color : "#FFFFFF",
 					size : '50px',
 					isRed : true
-					}
+				}
 			});
 		</script>
 		<style>
