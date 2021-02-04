@@ -3,7 +3,41 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
 	</head>
 	<body>
+		<div id="app">
+			<!-- 动态绑定 -->
+			<div 
+			class="test"
+			v-bind:class="[ isActive ? 'active' : '' , isGreen ? 'green' : '' ]"
+			style="width: 200px; height: 200px; text-align: center; line-height: 200px;">
+				hi vue
+			</div>
+			<!-- 绑定内联样式 -->
+			<div 
+			:style="{color:color, fontSize:size, background: isRed ? '#FF0000' : ''}">
+				hi vue
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var vm = new Vue({
+				el	:"#app",
+				data: {
+					isActive : true,	//false
+					isGreen	 : true,
+					color	 : '#FFFFFF',
+					size	 : '50px',
+					isRed	 : true
+				}
+			})
+		</script>
+		
+		<style type="text/css">
+			.active{background-color: #FF0000;}
+			.test{font-size: 30px;}
+			.green{color: green;}
+		</style>
 	</body>
 </html>

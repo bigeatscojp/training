@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div id="example1">
+				<button v-on:click="counter += 1" > 数值 : {{ counter }}</button><br />
+				<button v-on:click="greet('abc', $event)">Greet</button>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					counter : 0,
+					name	: "vue"
+				},
+				methods:{
+					greet:function(str, e){
+						alert('hi');
+						alert(this.name);
+						alert(str);
+						console.log(e);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
