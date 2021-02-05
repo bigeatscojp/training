@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {getToken,addToken,addUser,getUser} from '../service.js'
+import {getToken,addToken,addUser,getUser} from '@/common/js/storage.js'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
