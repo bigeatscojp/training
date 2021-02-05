@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id="app">
+            <div id="loginView">
+                <p>{{ head }}</p>
+                <input v-model="userName">
+                <p>{{ mid }}</p>
+                <input v-model="passWord">
+                <br />
+
+                <div style="margin-top: 100px;">
+                    <button type="button" @click="login">ログイン</button>
+                    <p>{{ bottom }}</p>
+                    <a href="http://www.google.com">{{ link }}</a>
+                </div>
+            </div>
+		</div>
+		
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+                    head : "携帯番号またはメールアドレス",
+                    mid : "パスワード",
+                    bottom : "By proceeding you agree to there",
+                    link : "Terms and Conditions",
+                    userName : "",
+                    passWord : ""
+                },
+                methods:{
+                    login : function(){
+                        var userData = {
+                            userId : this.userName,
+                            userPs : this.passWord
+                        };
+                        console.log(userData);
+                    }
+                }
+			});
+		</script>
+	</body>
+</html>

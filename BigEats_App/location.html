@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id="app">
+            <div id="tittle">
+                <div>
+                    <p>{{ image }}</p>
+                    <p>{{ head }}</p>
+                    <p>{{ add }}</p>
+                </div>
+            </div>
+            <div id="address">
+                <ul>
+                    <li v-for="item in userAdress">
+                        <p>
+                            {{ item.tittle }}
+                            {{ item.edit }}
+                            {{ item.delete }}
+                        </p>
+                        <p>{{ item.addr }}</p>
+                        <p>{{ item.user }}</p>
+                        <p>{{ item.tel }}</p>
+                    </li>
+                </ul>
+            </div>
+		</div>  
+		
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data: {
+                    image : '<',
+                    head : "お届け先",
+                    add : "新規",
+                    userAdress : [
+                        {
+                            tittle : "会社", edit : "edit", delete : "delete",
+                            addr : "東京都中央区銀座一丁目8-19 キラリトギンザ11F", user : "佐藤　貞英",
+                            tel : '08034981199'
+                        },
+                         {
+                             tittle : "会社", edit : "edit", delete : "delete",
+                             addr : "東京都中央区銀座一丁目8-20 キラリトギンザ11F", user : "佐藤　貞英",
+                             tel : '08034981199'
+                        }
+                    ]
+				}
+			});
+		</script>
+	</body>
+</html>

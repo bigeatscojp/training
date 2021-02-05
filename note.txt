@@ -1,0 +1,39 @@
+
+var vm = new Vue ({		-实例化对象
+				el: '#app', -id绑定
+				data: {  -数据绑定
+				}
+				})
+				
+数组：
+		使用
+				<ul>
+				<li v-for="item,index in items" :key="index">
+					{{index}} {{item.message}} {{item.ad}}
+				</li>
+				</ul>
+				<ul>
+					<li v-for="value,key in object" :key="key">
+						{{key}} : {{value}}
+					</li>
+				</ul>
+				
+		数据
+				items : [
+						{message : 'Hello World!', ad : "aa"},
+						{message : 'two', ad : "asd"}
+					],
+				object: {
+						title: 'How to do lists in Vue',
+						author: 'Jane Doe',
+						publishedAt: '2016-04-10'
+					}
+					
+		结果
+				
+				0 Hello World! aa
+				1 two asd
+				
+				title : How to do lists in Vue
+				author : Jane Doe
+				publishedAt : 2016-04-10
