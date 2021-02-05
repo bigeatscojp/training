@@ -3,23 +3,21 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<title></title>
+		<title>Login</title>
 		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
 	</head>
 	<body>
 		<div class="main" id="app">
-			
 			<div class="top">
 				<p class="title">携帯番号またはメールアドレス</p><br/>
-				<input class="textBox" v-model="id"/><br/>
+				<input class="textBox" v-model="id"/>
 				<p class="title">パスワード</p><br/>
-				<input class="textBox" v-model="password" type="password"/><br/>
+				<input class="textBox" v-model="password" type="password"/>
 			</div>
-			
 			<div class="bottom">
 				<button
 					id="button"
-					class="button"
+					class="loginButton"
 					type="button" 
 					v-on:click="login()">
 					ログイン
@@ -27,16 +25,14 @@
 				<p class="bottomText">by proceeding, you agree to these</p><br/>
 				<a class="bottomText" v-bind:href="url">Terms and Conditions</a>
 			</div>
-			
 		</div>
-		
 		<script type="text/javascript">
 			var vm = new Vue({
 				el:"#app",
 				data:{
 					id : "",
 					password : "",
-					url: "https://ljob74fhkn.feishu.cn/docs/doccn2fo9hBobVtIOb9FWdc4Mbd"
+					url: "https://www.google.com/"
 				},
 				methods:{
 					//弹出登录数据
@@ -47,45 +43,41 @@
 			})
 			var buttonEl = document.getElementById("button");
 			button.onclick = function () {
-				console.log("get in");
 				buttonEl.style="background-color: #F3F3F3; color: #9E9E9E;";
 			}
 		</script>
-		
 		<style type="text/css">
 			.main{
-				width: 375px;
-				height: 600px;
-				margin: 0 auto;
+				margin	: 0 auto;
+				width	: 375px;
 			}
 			.top{
 				text-align: center;
 			}
 			.title{
 				margin-bottom: -20px;
-				font-size: 15px;
-				color: #B4B4B4;
+				font-size	: 15px;
+				color		: #B4B4B4;
 			}
 			.textBox{
-				margin-top: 0;
-				height: 30px;
-				width: 300px;
+				margin-top	: 0;
+				height		: 30px;
+				width		: 300px;
 				border-radius: 10px;
 				background-color: #F3F3F3;
-				text-align:center;
-				font-weight: bold;
+				text-align	:center;
+				font-weight	: bold;
 			}
 			.bottom{
-				margin-top: 200px;
-				margin-bottom: 0;
+				margin: 200px 0 0 0;
 				text-align: center;
 			}
-			.button{
+			.loginButton{
+				height			: 40px;
+				width			: 300px;
+				border-radius	: 25px;
 				background-color: #FCCC00;
-				border-radius: 25px;
-				height: 40px;
-				width:300px;
-				font-weight: bold;
+				font-weight		: bold;
 			}
 			.bottomText{
 				margin-bottom: -20px;
