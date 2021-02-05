@@ -18,6 +18,7 @@
 			
 			<div class="bottom">
 				<button
+					id="button"
 					class="button"
 					type="button" 
 					v-on:click="login()">
@@ -44,6 +45,11 @@
 					}
 				}
 			})
+			var buttonEl = document.getElementById("button");
+			button.onclick = function () {
+				console.log("get in");
+				buttonEl.style="background-color: #F3F3F3; color: #9E9E9E;";
+			}
 		</script>
 		
 		<style type="text/css">
