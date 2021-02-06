@@ -3,7 +3,7 @@
 		<loading :is-loading="isLoadList"></loading>
 		<!-- <image class="logo" src="/static/logo.png"></image> -->
 		<view class="text-area">
-			<text class="title">{{title}}</text>			
+			<text class="title">{{i18n.test}}</text>			
 		</view>
 	</view>
 </template>
@@ -17,12 +17,41 @@
 				isLoadList: true
 			}
 		},
+		
 		onLoad() {
 
 		},
+		
 		methods: {
 
+		},
+		
+		computed: {  
+			i18n () {  
+			 return this.$t('index')  
+			}  
+		},
+		
+		onShow() {
+			// console.log('onShow')
+			// 动态设置tabBar标题
+			const tabBar = this.$t('tabBar');
+			// console.log(tabBar)
+			uni.setTabBarItem({
+				index: 0,
+				text:tabBar.index
+			})
+		},
+		
+		onReady() {
+			// console.log('onReady')
+			// 动态设置导航标题
+			const { navbar } = this.i18n;
+			uni.setNavigationBarTitle({
+				title: navbar
+			});		
 		}
+		
 	}
 </script>
 
@@ -50,6 +79,7 @@
 
 	.title {
 		font-size: 36rpx;
-		color: rgba($color: #F9F9F9, $alpha: .94);
+		// color: rgba($color: #F9F9F9, $alpha: .94);
+		color: black;
 	}
 </style>

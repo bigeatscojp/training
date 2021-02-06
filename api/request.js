@@ -1,7 +1,6 @@
 import {
 	getToken,
-	addToken,
-	delToken
+	setToken
 } from '@/common/js/storage.js'
 import {
 	domain
@@ -27,7 +26,7 @@ export function access(apiObj, successCallback, failCallback, isNotShowLoading) 
 			if (res.data.status == 100) {
 				successCallback ? successCallback(res.data) : null
 			} else if (res.data.status == 300 || res.data.status == 600 || res.data.status == 700) {
-				delToken()
+				setToken()
 				//需要登录的逻辑
 				uni.showToast({
 					icon: 'none',
