@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/bigeatscojp/training#readme",
   "dependencies": {
-    "mockjs": "^1.1.0"
+    "mockjs": "^1.1.0",
+    "vue-i18n": "^8.22.4"
   }
 }

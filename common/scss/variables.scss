@@ -1,0 +1,47 @@
+/* 颜色相关 */
+$color-main: #FCCC00; 
+$color-gray-1: #B4B4B4;
+$color-gray-2: #F3F3F3;
+$color-gray-3: #9E9E9E;
+
+$color-black-1: #000000;
+$color-black-2: #263238;
+$color-black-3: #5E5A5A;
+
+$color-blue-1: #0375C7;
+
+$color-red-1: #BE111B;
+$color-red-2: rgba(#F40D0D, .71);
+
+/* 对应缩写 */
+$cm: $color-main;
+$cg1: $color-gray-1;
+$cg2: $color-gray-2;
+$cg3: $color-gray-3;
+$cb1: $color-black-1;
+$cb2: $color-black-2;
+$cb3: $color-black-3;
+$cblue: $color-blue-1;
+$cr1: $color-red-1;
+$cr2: $color-red-2;
+
+
+/* 字体大小 需要换算rpx */
+$font-small-1: 18rpx; // 9px
+$font-small-2: 20rpx; // 10px
+$font-small-3: 24rpx; //12px
+$font-normal: 28rpx; // 14px
+$font-big-1: 32rpx; // 16px
+$font-big-2: 36rpx; // 18px
+$font-big-3: 40rpx; //20px
+$font-big-4: 44rpx; // 22px
+
+/* 对应缩写 */
+$fs1: $font-small-1;
+$fs2: $font-small-2;
+$fs3: $font-small-3;
+$fn: $font-normal;
+$fb1: $font-big-1;
+$fb2: $font-big-2;
+$fb3: $font-big-3;
+$fb4: $font-big-4;

@@ -1,9 +1,9 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
+		<loading :is-loading="isLoadList"></loading>
+		<!-- <image class="logo" src="/static/logo.png"></image> -->
 		<view class="text-area">
-			<text class="title">{{title}}</text>
-			<loading :is-loading="isLoadList"></loading>
+			<text class="title">{{title}}</text>			
 		</view>
 	</view>
 </template>
@@ -26,7 +26,7 @@
 	}
 </script>
 
-<style lang="less">
+<style lang="scss">
 	.content {
 		display: flex;
 		flex-direction: column;
@@ -50,6 +50,6 @@
 
 	.title {
 		font-size: 36rpx;
-		color: #8f8f94;
+		color: rgba($color: #F9F9F9, $alpha: .94);
 	}
 </style>
