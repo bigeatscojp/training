@@ -28,7 +28,11 @@ const i18nMessage = {
 		account: {
 			navbar: 'アカウント',	
 			test: 'テスト account',
-		},					
+		},	
+		// 店舗詳細
+		detail: {
+			navbar: '店舗詳細'	
+		},
 		// demo
 		demo: {
 			navbar: 'デモン',

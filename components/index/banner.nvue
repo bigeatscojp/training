@@ -2,13 +2,7 @@
 	<view class="c-banner">
 		<swiper class="c-swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration"
 		 :indicator-active-color="indicatorActiveColor">
-			<swiper-item class="c-swiper__item">
-				<image class="c-banner__image" src="../../static/test.jpeg" mode="aspectFill"></image>
-			</swiper-item>
-			<swiper-item class="c-swiper__item">
-				<image class="c-banner__image" src="../../static/test.jpeg" mode="aspectFill"></image>
-			</swiper-item>
-			<swiper-item class="c-swiper__item">
+			<swiper-item class="c-swiper__item" v-for="(item, index) in list" v-bind:key="item">
 				<image class="c-banner__image" src="../../static/test.jpeg" mode="aspectFill"></image>
 			</swiper-item>
 		</swiper>
@@ -28,7 +22,8 @@
 				autoplay: false,
 				interval: 5000,
 				duration: 500,
-				indicatorActiveColor: 'white'
+				indicatorActiveColor: 'white',
+				list: [1,2,3]
 			}
 		},		
 	}

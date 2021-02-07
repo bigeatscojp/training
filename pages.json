@@ -1,6 +1,12 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/detail/index",
+			"style": {
+				"navigationBarTitleText": "店舗詳細"
+			}
+		},	
+		{
 			"path": "pages/sale/index",
 			"style": {
 				"navigationBarTitleText": "直売"
@@ -11,7 +17,7 @@
 			"style": {
 				"navigationBarTitleText": "ホーム"
 			}
-		},		
+		},	
 		{
 			"path": "pages/demo/index",
 			"style": {

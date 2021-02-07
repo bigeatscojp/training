@@ -31,7 +31,7 @@
 		</view>
 		<view class="c-item__container">
 			<view class="c-item__list">
-				<view class="c-item__item">
+				<view class="c-item__item" v-for="(item, index) in list" v-bind:key="item">
 					<view class="c-item__subimage">
 						<image src="../../static/test.jpeg" mode="aspectFill"></image>
 					</view>
@@ -41,51 +41,7 @@
 					<view class="c-item__price">
 						<text>¥ 1,202</text>
 					</view>
-				</view>
-				<view class="c-item__item">
-					<view class="c-item__subimage">
-						<image src="../../static/test.jpeg" mode="aspectFill"></image>
-					</view>
-					<view class="c-item__name">
-						<text>イタリアご飯</text>
-					</view>
-					<view class="c-item__price">
-						<text>¥ 1,202</text>
-					</view>
-				</view>
-				<view class="c-item__item">
-					<view class="c-item__subimage">
-						<image src="../../static/test.jpeg" mode="aspectFill"></image>
-					</view>
-					<view class="c-item__name">
-						<text>イタリアご飯</text>
-					</view>
-					<view class="c-item__price">
-						<text>¥ 1,202</text>
-					</view>
-				</view>
-				<view class="c-item__item">
-					<view class="c-item__subimage">
-						<image src="../../static/test.jpeg" mode="aspectFill"></image>
-					</view>
-					<view class="c-item__name">
-						<text>イタリアご飯</text>
-					</view>
-					<view class="c-item__price">
-						<text>¥ 1,202</text>
-					</view>
-				</view>
-				<view class="c-item__item">
-					<view class="c-item__subimage">
-						<image src="../../static/test.jpeg" mode="aspectFill"></image>
-					</view>
-					<view class="c-item__name">
-						<text>イタリアご飯</text>
-					</view>
-					<view class="c-item__price">
-						<text>¥ 1,202</text>
-					</view>
-				</view>
+				</view>				
 			</view>
 		</view>
 	</view>
@@ -93,6 +49,11 @@
 
 <script>
 	export default {
+		data() {
+			return {
+				list: [1,2,3,4,5]
+			}
+		},
 		computed: {
 			i18n() {
 				return this.$t('index')
@@ -123,6 +84,7 @@
 
 	.c-item__info {
 		margin-left: 30rpx;
+		justify-content: space-between;
 	}
 
 	.c-item__title {
@@ -133,7 +95,6 @@
 	}
 
 	.c-item__subinfo {
-		margin-top: 4rpx;
 		flex-direction: row;
 	}
 

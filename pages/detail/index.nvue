@@ -1,0 +1,44 @@
+<template>
+	<view class="c-detail">
+		<cheader></cheader>
+		<view class="c-food">
+			<cfood></cfood>
+		</view>		
+		<ccart></ccart>
+	</view>
+</template>
+
+<script>
+	import cheader from '@/components/detail/header.nvue'
+	import cfood from '@/components/detail/food.nvue'
+	import ccart from '@/components/detail/cart.nvue'
+	export default {
+		components: {
+		  cheader,
+		  cfood,
+		  ccart
+		},		
+		computed: {  
+			i18n () {  
+			 return this.$t('detail')  
+			}  
+		},
+		
+		onReady() {
+			// 动态设置导航标题
+			const { navbar } = this.i18n;
+			uni.setNavigationBarTitle({
+				title: navbar
+			});		
+		}				
+	}
+</script>
+
+<style scoped lang="scss">
+	page {
+		background: $color-gray-2;
+	}	
+	.c-food {
+		margin-top: 16rpx;
+	}
+</style>

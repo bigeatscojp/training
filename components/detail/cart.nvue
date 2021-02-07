@@ -1,0 +1,19 @@
+<template>
+	<view class="c-cart">
+		
+	</view>
+</template>
+
+<script>
+	export default {
+		computed: {  
+			i18n () {  
+			 return this.$t('index')  
+			}  
+		},		
+	}
+</script>
+
+<style scoped lang="scss">
+
+</style>
