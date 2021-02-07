@@ -5,6 +5,13 @@ const i18nMessage = {
 		index: {
 			// 导航栏标题，每个页面都要设置
 			navbar: 'ホーム',	
+			addressBtn: '変更する',
+			popular: 'お近くの人気店',
+			allBtn: 'すべて表示',
+			recommendedOrder: 'お勧め',
+			popularOrder: '人気順',
+			commentOrder: '評価順',
+			deliverTimeOrder: '配達時間',
 			test: 'テスト index',
 		},
 		// 直売

@@ -1,0 +1,57 @@
+<template>
+	<view class="c-tags">
+		<view class="c-tags__item">
+			<text>中華料理</text>
+		</view>
+		<view class="c-tags__item">
+			<text>中華料理</text>
+		</view>
+		<view class="c-tags__item">
+			<text>中華料理</text>
+		</view>
+		<view class="c-tags__item">
+			<text>中華料理</text>
+		</view>
+		<view class="c-tags__item">
+			<text>中華料理</text>
+		</view>
+		<view class="c-tags__item">
+			<text>中華料理</text>
+		</view>
+		<view class="c-tags__item">
+			<text>中華料理</text>
+		</view>
+		<view class="c-tags__item">
+			<text>中華料理</text>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		computed: {  
+			i18n () {  
+			 return this.$t('index')  
+			}  
+		},
+	}
+</script>
+
+<style scoped lang="scss">
+	.c-tags {
+		background: white;
+		padding: 14rpx 20rpx 14rpx 20rpx;;	
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}
+	.c-tags__item {
+		margin: 14rpx 15rpx 14rpx 15rpx;
+		border-radius: 20rpx;
+		border: 2rpx solid $color-main;
+		padding: 20rpx 30rpx;
+		text {
+			font-size: $font-small-2;
+		}
+	}
+</style>

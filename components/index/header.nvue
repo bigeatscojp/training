@@ -1,0 +1,54 @@
+<template>
+	<view class="c-header">
+		<view class="c-address">
+			<view class="c-address__icon">
+				<text>icon</text>
+			</view>
+			<view class="c-address__text">
+				<text>中央区銀座１丁目8-19 BINARYSTAR 株式会社</text>
+			</view>
+			<view class="c-address__change">
+				<text>{{i18n.addressBtn}}</text>
+			</view>
+		</view>
+		<csearch></csearch>
+	</view>
+</template>
+
+<script>
+	import csearch from '@/components/search/search.nvue'
+	export default {
+		components: {
+		  csearch
+		},		
+		computed: {  
+			i18n () {  
+			 return this.$t('index')  
+			}  
+		},
+	}
+</script>
+
+<style scoped lang="scss">
+	.c-header {
+		padding: 30rpx 34rpx;
+		background: white;
+	}
+	.c-address {
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.c-address__text {
+		text {
+			font-size: $font-small-3;
+			font-weight: bold;
+		}
+	}
+	.c-address__change {
+		text {
+			font-size: $font-small-2;
+		}
+	}
+</style>
