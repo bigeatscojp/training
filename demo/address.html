@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --main-color: #b4b4b4;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        background-color: var(--main-color);
+        height: 100vh;
+      }
+      .top {
+        height: 30px;
+        background-color: #f3f3f3;
+      }
+      .title {
+        /* display: block; */
+        text-align: center;
+        margin-top: 30px;
+      }
+      .new {
+        /* display: block; */
+        width: 80px;
+        margin: -23px 0 0 285px;
+      }
+      .addressDiv {
+        padding: 10px;
+        background-color: #fff;
+        border-bottom: 10px solid #f3f3f3;
+        height: 120px;
+        width: 340px;
+      }
+
+      .classification {
+        border: solid 2px #ffc300;
+        padding: 6px;
+        height: 8px;
+        width: 40px;
+        text-align: center;
+        font-size: 10px;
+        color: #ffc300;
+        /* 圆角 */
+        border-radius: 30px;
+      }
+      .address {
+        font-size: 14px;
+        color: #b4b4b4;
+      }
+      .nameAndTel {
+        font-size: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" style="background: #fff">
+      <div class="top">
+        <div class="title">お届け先</div>
+        <div class="new">新規</div>
+      </div>
+      <template>
+        <div>
+          <div class="addressDiv" class="list-item" v-for="item in list">
+            <p class="classification">{{item.classification}}</p>
+
+            <div>
+              <p class="address">{{item.address}}</p>
+            </div>
+            <div>
+              <span class="nameAndTel">{{item.name}}</span>
+            </div>
+            <div>
+              <span class="nameAndTel">{{item.tel}}</span>
+            </div>
+            <!-- <hr style="width: 1000px; height: 20px" /> -->
+          </div>
+        </div>
+      </template>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var example1 = new Vue({
+        el: "#app",
+        data: {
+          items: [{ message: "Foo" }, { message: "Bar" }],
+          list: [
+            {
+              classification: "会社",
+              address: "東京都中央区銀座1丁目8-19 キラリトギンザ　11F",
+              name: "佐藤 貞英",
+              tel: "08034981199",
+            },
+            {
+              classification: "自宅",
+              address: "東京都中央区銀座1丁目8-19 キラリトギンザ　11F",
+              name: "佐藤 貞英",
+              tel: "08034981199",
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>
