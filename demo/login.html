@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        height: 100vh;
+      }
+
+      .logo {
+        width: 50vw;
+        margin: 0 auto;
+      }
+      .text {
+        color: #b4b4b4;
+        font-size: 12px;
+        text-align: center;
+      }
+      .input {
+        /* 圆角 */
+        border-radius: 6px;
+        background: #f3f3f3;
+        margin: 0px auto;
+        height: 35px;
+        width: 250px;
+        border: 0;
+      }
+      button {
+        width: 200px;
+        height: 35px;
+        margin: 0px auto;
+        margin-top: 325px;
+        background: #fccc00;
+        border-radius: 20px;
+        border: none;
+        font-size: 18px;
+        font-weight: 700;
+        color: #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <img class="logo" src="./assets/logo.png" /> -->
+      <p class="text">携帯電話またはメールアドレス</p>
+      <input type="text" class="input" v-model="account" />
+      <p class="text">パスワード</p>
+      <input type="password" class="input" v-model="pwd" />
+      <div style="width: 100%; text-align: center">
+        <button v-on:click="login">ログイン</button>
+      </div>
+
+      <p class="text">By proceeding you agree to these</p>
+      <pre
+        style="display: flex; justify-content: center"
+      ><a  class="text" v-bind:href="url">Terms and Conditions</a></pre>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          account: "",
+          pwd: "",
+          url: "",
+        },
+        methods: {
+          login: function () {
+            alert(`用户名是${this.account}, 密码是${this.pwd}`);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
