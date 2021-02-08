@@ -1,0 +1,24 @@
+{
+  "name": "training",
+  "version": "1.0.0",
+  "description": "Hi, 大家好，这块是个训练的项目。",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigeatscojp/training.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bigeatscojp/training/issues"
+  },
+  "homepage": "https://github.com/bigeatscojp/training#readme",
+  "dependencies": {
+    "mockjs": "^1.1.0",
+    "vue-i18n": "^8.22.4"
+  }
+}

@@ -1,0 +1,37 @@
+.c-button {
+	width: 570rpx;
+	height: 96rpx;	
+	font-size: $font-big-3;
+	font-weight: bold;
+	line-height: 96rpx;
+	border-radius: 50rpx;
+	border: none;
+}
+//285px 250px 138px
+.c-button--primary {
+	background-color: $color-main;
+	color: $color-black-1;
+	
+	&.button-hover {
+		background-color: rgba($color-main, .7);
+		color: rgba($color-black-1, .7);
+	}
+}
+.c-button[disabled],
+.c-button--disabled {
+	background-color: white;
+	color: $color-gray-3;	
+	border: 2rpx solid $color-gray-3;
+}
+.c-button--small {
+	width: 276rpx;
+	height: 64rpx;
+	line-height: 64rpx;
+	font-size: $font-big-2;
+}
+.c-button--medium {
+	width: 500rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	font-size: $font-normal;
+}

@@ -1,0 +1,42 @@
+<template>
+	<view class="c-banner">
+		<swiper class="c-swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration"
+		 :indicator-active-color="indicatorActiveColor">
+			<swiper-item class="c-swiper__item" v-for="(item, index) in list" v-bind:key="item">
+				<image class="c-banner__image" src="../../static/test.jpeg" mode="aspectFill"></image>
+			</swiper-item>
+		</swiper>
+	</view>
+</template>
+
+<script>
+	export default {
+		computed: {  
+			i18n () {  
+			 return this.$t('index')  
+			}  
+		},
+		data() {
+			return {
+				indicatorDots: true,
+				autoplay: false,
+				interval: 5000,
+				duration: 500,
+				indicatorActiveColor: 'white',
+				list: [1,2,3]
+			}
+		},		
+	}
+</script>
+
+<style scoped lang="scss">
+	.c-banner,
+	.c-swiper,
+	.c-swiper__item {
+		height: 306rpx;
+	}
+	.c-banner__image {
+		height: 306rpx;
+		width: 750rpx;
+	}
+</style>

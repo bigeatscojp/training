@@ -1,0 +1,146 @@
+<template>
+	<view class="c-item">
+		<view class="c-item__header">
+			<view class="c-item__image">
+				<image src="../../static/test.jpeg" mode="aspectFill"></image>
+			</view>
+			<view class="c-item__info">
+				<view class="c-item__title">
+					<text>サイゼリヤ Saizeriya（川口店）</text>
+				</view>
+				<view class="c-item__subinfo">
+					<view class="c-item__text">
+						<text>6.5キロ</text>
+					</view>
+					<view class="c-item__text">
+						<text>35-40min</text>
+					</view>
+					<view class="c-item__text">
+						<text>Pickup可能</text>
+					</view>
+				</view>
+				<view class="c-item__subinfo">
+					<view class="c-item__text">
+						<text>最低配達可能金額 ¥ 1200</text>
+					</view>
+					<view class="c-item__text">
+						<text>3km以内送料無料</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="c-item__container">
+			<view class="c-item__list">
+				<view class="c-item__item" v-for="(item, index) in list" v-bind:key="item">
+					<view class="c-item__subimage">
+						<image src="../../static/test.jpeg" mode="aspectFill"></image>
+					</view>
+					<view class="c-item__name">
+						<text>イタリアご飯</text>
+					</view>
+					<view class="c-item__price">
+						<text>¥ 1,202</text>
+					</view>
+				</view>				
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				list: [1,2,3,4,5]
+			}
+		},
+		computed: {
+			i18n() {
+				return this.$t('index')
+			}
+		},
+	}
+</script>
+
+<style scoped lang="scss">
+	.c-item {
+		background-color: white;
+		margin-top: 16rpx;
+	}
+
+	.c-item__header {
+		padding: 28rpx 40rpx 24rpx 40rpx;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	.c-item__image {
+		image {
+			width: 100rpx;
+			height: 100rpx;
+			border-radius: 20rpx;
+		}
+	}
+
+	.c-item__info {
+		margin-left: 30rpx;
+		justify-content: space-between;
+	}
+
+	.c-item__title {
+		text {
+			font-weight: bold;
+			font-size: $font-normal;
+		}
+	}
+
+	.c-item__subinfo {
+		flex-direction: row;
+	}
+
+	.c-item__text {
+		margin-right: 8rpx;
+
+		text {
+			color: $color-gray-3;
+			font-size: $font-small-2;
+		}
+	}
+
+	.c-item__list {
+		flex-direction: row;
+		justify-content: flex-start;
+		padding-left: 16rpx;
+		padding-right: 16rpx;
+	}
+
+	.c-item__item {
+		padding-left: 8rpx;
+		padding-right: 8rpx;
+		padding-bottom: 16rpx;
+	}
+
+	.c-item__subimage {
+		image {
+			width: 126rpx;
+			height: 100rpx;
+			border-radius: 20rpx;
+		}
+	}
+
+	.c-item__name,
+	.c-item__price {
+		text-align: center;
+		width: 126rpx;
+		text {
+			width: 126rpx;
+			font-size: $font-small-1;
+			color: $color-gray-4;
+			text-overflow: ellipsis;
+			word-break: break-all;
+			white-space: nowrap;
+			overflow: hidden;
+			lines: 1;
+		}
+	}
+</style>
