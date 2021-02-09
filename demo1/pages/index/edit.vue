@@ -32,9 +32,14 @@
 		methods:{
 			submit(){
 				console.log('submit')
-				uni.setStorageSync('index',this.index)
-				uni.setStorageSync('name',this.name)
-				uni.setStorageSync('address',this.address)
+				// uni.setStorageSync('index',this.index)
+				// uni.setStorageSync('name',this.name)
+				// uni.setStorageSync('address',this.address)
+				this.$store.commit('setIndex', this.index)
+				this.$store.commit('setName', this.name)
+				this.$store.commit('setAddress', this.address)
+				// 返回上一个页面
+				uni.navigateBack({})
 			}
 		}
 	}
