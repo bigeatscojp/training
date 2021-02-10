@@ -6,19 +6,18 @@
 		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
 	</head>
 	<body>
-		<div id="app">
-            <div id="loginView">
-                <p>{{ head }}</p>
-                <input v-model="userName">
-                <p>{{ mid }}</p>
-                <input v-model="passWord">
-                <br />
+		<div id="app" class="loginView">
+            <div class="top">
+                <p class="tittle">{{ accountTittle }}</p>
+                <input class="textBox" v-model="userName">
+                <p class=" tittle">{{ passTittle }}</p>
+                <input class="textBox" v-model="passWord" type="password">
+            </div>
 
-                <div style="margin-top: 100px;">
-                    <button type="button" @click="login">ログイン</button>
-                    <p>{{ bottom }}</p>
-                    <a href="http://www.google.com">{{ link }}</a>
-                </div>
+             <div class="bottom" style="margin-top: 100px;">
+                <button type="button" @click="login">ログイン</button>
+                <p>{{ war }}</p>
+                <a href="http://www.google.com">{{ link }}</a>
             </div>
 		</div>
 		
@@ -26,23 +25,34 @@
 			var vm = new Vue({
 				el: '#app',
 				data: {
-                    head : "携帯番号またはメールアドレス",
-                    mid : "パスワード",
-                    bottom : "By proceeding you agree to there",
+                    accountTittle : "携帯番号またはメールアドレス",
+                    passTittle : "パスワード",
+                    war : "By proceeding you agree to there",
                     link : "Terms and Conditions",
                     userName : "",
                     passWord : ""
                 },
                 methods:{
                     login : function(){
-                        var userData = {
-                            userId : this.userName,
-                            userPs : this.passWord
-                        };
-                        console.log(userData);
+                        alert("ユーザー：" + this.userName + "\nパスワード:" + this.passWord);
                     }
                 }
 			});
-		</script>
+        </script>
+        <style type="text/css">
+            .loginView{
+                margin: 0 auto;
+                width: 375px;
+                text-align: center;
+            }
+            .bottom{
+                margin: 200rpx, 0, 0;
+            }
+			.tittle{
+				height: 14rpx;
+				font-size: 14rpx;
+			}
+
+        </style>
 	</body>
 </html>

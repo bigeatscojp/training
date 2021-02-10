@@ -1,0 +1,75 @@
+<template>
+	<view>
+		<item v-for="(item,index) in list" :key="index" :index="index" :sendName="item.sendName" :address="item.address"
+		 :name="item.name" :tel="item.tel">
+		</item>
+	</view>
+</template>
+
+<script>
+	import item from '@/components/index/item.vue'
+	export default {
+		computed: {
+			index() {
+				return this.$store.state.index
+			},
+			sendName(){
+				return this.$store.state.sendName
+			},
+			mail(){
+				return this.$store.state.mail
+			},
+			address(){
+				return this.$store.state.address
+			},
+			name(){
+				return this.$store.state.name
+			},
+			tel(){
+				return this.$store.state.tel
+			}
+		},
+		components: {
+			item
+		},
+		data() {
+			return {
+				list: []
+			}
+		},
+		onLoad() {
+			console.log('onLoad')
+			this.load()
+		},
+		onShow() {
+			this.refresh()
+		},
+		methods: {
+			load: function() {
+				for (var i = 0; i < 10; i++) {
+					this.list[i] = {
+						name: 'name' + i,
+						address: 'address' + i,
+					}
+				}
+			},
+			refresh(){
+				if(!this.index){
+					return
+				}
+				console.log(this.$store.state)
+				this.list.splice(this.index,1,{
+					sendName:this.sendName,
+					mail:this.mail,
+					address:this.address,
+					name:this.name,
+					tel:this.tel
+				})
+				console.log('refresh')
+			}
+		}
+	}
+</script>
+
+<style>
+</style>
