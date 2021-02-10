@@ -8,17 +8,17 @@ const store = new Vuex.Store({
 	// 状态
 	state: {
 		classification: '',
-		index: '',
 		name: '',
 		address: '',
+		tel: '',
+		index: '',
 	},
 	mutations: {
+		setIndex(state, index) {
+			this.state.index = index
+		},
 		setClassification(state, classification) {
 			this.state.classification = classification
-		},
-		setIndex(state, index) {
-			console.log('setIndex')
-			this.state.index = index
 		},
 		setName(state, name) {
 			console.log('setName')
@@ -28,9 +28,8 @@ const store = new Vuex.Store({
 			console.log('setAddress')
 			this.state.address = address
 		},
-		setTel(state, Aaddress) {
-			console.log('setAddress')
-			this.state.address = address
+		setTel(state, tel) {
+			this.state.tel = tel
 		},
 	}
 })

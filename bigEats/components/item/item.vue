@@ -25,9 +25,6 @@
 			},
 			classification: {
 				type: String,
-				default () {
-					return "name5"
-				}
 			},
 			address: {
 				type: String,
@@ -58,8 +55,6 @@
 				uni.navigateTo({
 					url: '../../pages/edit/edit?index='+this.index+"&classification="+this.classification+"&address="+this.address+"&name="+this.name+"&tel="+this.tel
 				}),
-				
-				console.log(this.$store.state.name)
 				// 通知父组件
 				this.$emit('goToEdit', {
 					name: this.name

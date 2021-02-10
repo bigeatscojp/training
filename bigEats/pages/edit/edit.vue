@@ -1,11 +1,8 @@
 <template>
 	<view>
-		<!-- 		<view class="top">
-		  <view class="title">新規お届け先</view>
-		</view> -->
 		<view class="addressEditView">
 			<text class="text">お届け先名</text>
-			<input class="addressEditInput" v-model="remark" type="text" />
+			<input class="addressEditInput" v-model="classification" type="text" />
 			<text class="text">郵便番号</text>
 			<input class="addressEditInput" v-model="postCode" type="text" />
 			<text class="text">アドレス</text>
@@ -25,7 +22,8 @@
 	export default {
 		data() {
 			return {
-				remark: '',
+				index: '',
+				classification: '',
 				postCode: '134 0088',
 				address: '',
 				name: '',
@@ -34,10 +32,11 @@
 		},
 
 		onLoad(option) {
-			this.remark = option.classification
+			this.classification = option.classification
 			this.address = option.address
 			this.name = option.name
 			this.tel = option.tel
+			this.index = option.index
 		},
 
 		methods: {
@@ -47,15 +46,13 @@
 				// uni.setStorageSync('address', this.address)
 				// uni.setStorageSync('name', this.name)
 				// uni.setStorageSync('tel', this.tel)
-
-				this.$store.commit('setClassification', this.remark)
+				this.$store.commit('setIndex', this.index)
+				this.$store.commit('setClassification', this.classification)
 				this.$store.commit('setAddress', this.address)
 				this.$store.commit('setTel', this.tel)
 				this.$store.commit('setName', this.name)
 				// 返回上一个页面
-				uni.navigateTo({
-					url: '../index/index'
-				})
+				uni.navigateBack({})
 			}
 		}
 	}

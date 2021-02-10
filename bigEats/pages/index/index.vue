@@ -28,12 +28,14 @@
 </template>
 <script>
 	import item from '@/components/item/item.vue'
-	import addressEdit from '@/pages/addressEdit/addressEdit.vue'
 	export default {
 		components: {
 			item,
 		},
 		computed: {
+			index() {
+				return this.$store.state.index
+			},
 			classification() {
 				return this.$store.state.classification
 			},
@@ -48,15 +50,18 @@
 			},
 		},
 
-		// onLoad() {
-		// 	this.load()
-		// 	console.log('onLoad')
-		// },
+		onLoad() {
+			this.load()
+			console.log('onLoad')
+		},
 
+		onShow() {
+			this.refresh()
+		},
 
 		data() {
 			return {
-				 list: [
+				list: []
 				//	{
 				// 		classification: "自宅",
 				// 		address: "東京都中央区銀座1丁目8-19 キラリトギンザ　11F",
@@ -73,19 +78,15 @@
 				// 		name: "佐藤 貞英",
 				// 		tel: "08034981199",
 				// 	},
-				],
 			}
 		},
-		onLoad() {
-			console.log('onLoad')
-			this.load()
-			console.log(this.list)
-		},
+
 		methods: {
 			load: function() {
-				for (var i = 0; i < 10; i++) {
+				for (let i = 0; i < 3; i++) {
+					console.log(i);
 					this.list[i] = {
-						classfication: 'classfication' + i,
+						classification: 'classification' + i,
 						address: 'address' + i,
 						name: 'name' + i,
 						tel: 'tel' + i,
@@ -96,6 +97,20 @@
 			childGoToEdit(obj) {
 				console.log('childGoToEdit', obj)
 				// alert('跳转了')
+			},
+			refresh() {
+				if (!this.index) {
+					return
+				}
+				console.log(this.$store.state)
+				this.list.splice(this.index, 1, {
+					classification: this.classification,
+					name: this.name,
+					address: this.address,
+					tel: this.tel,
+					id: this.index,
+				})
+				console.log('refresh')
 			},
 
 		}
