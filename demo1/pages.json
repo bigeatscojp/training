@@ -7,6 +7,12 @@
 			}
 		},	
 		{
+			"path": "pages/index/count",
+			"style": {
+				"navigationBarTitleText": "vuex"
+			}
+		},		
+		{
 			"path": "pages/index/edit",
 			"style": {
 				"navigationBarTitleText": "编辑"
