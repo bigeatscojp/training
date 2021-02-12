@@ -4,7 +4,7 @@
 		<view class="c-cart">
 			<!-- 页面内容请在这里面编写 -->
 			<view class="">
-				
+				<text>修改了</text>
 			</view>
 		</view>
 	</cbody>
