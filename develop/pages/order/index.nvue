@@ -1,0 +1,59 @@
+<template>
+	<cbody>
+		<view class="c-order">
+			<text>order</text>
+		</view>
+	</cbody>
+</template>
+
+<script>
+	import cbody from '@/components/common/body.nvue'
+	// Get the globalData
+	const globalData = getApp().globalData		
+	export default {
+		components: {
+			cbody,
+		},
+		data() {
+			return {}
+		},
+
+		onLoad() {
+
+		},
+
+		methods: {
+
+		},
+
+		computed: {
+			i18n() {
+				return globalData.$t('order')
+			}
+		},
+
+		onShow() {
+			// 动态设置tabBar标题
+			const tabBar = globalData.$t('tabBar');
+			uni.setTabBarItem({
+				index: 2,
+				text: tabBar.order
+			})
+		},
+
+		onReady() {
+			// 动态设置导航标题
+			const {
+				navbar
+			} = this.i18n;
+			uni.setNavigationBarTitle({
+				title: navbar
+			});
+		}
+
+	}
+</script>
+
+<style scoped lang="scss">
+	
+</style>

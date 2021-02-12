@@ -1,0 +1,68 @@
+<template>
+	<view class="c-list">
+		<view class="c-list__header">
+			<view class="c-list__tab c-list__tab--active">
+				<text class="c-list__text c-list__text--active">{{i18n.recommendedOrder}}</text>
+			</view>
+			<view class="c-list__tab">
+				<text class="c-list__text">{{i18n.popularOrder}}</text>
+			</view>
+			<view class="c-list__tab">
+				<text class="c-list__text">{{i18n.commentOrder}}</text>
+			</view>
+			<view class="c-list__tab">
+				<text class="c-list__text">{{i18n.deliverTimeOrder}}</text>
+			</view>
+		</view>
+		<view class="c-list__container">
+			<citem></citem>
+			<citem></citem>
+		</view>
+	</view>
+</template>
+
+<script>
+	// Get the globalData
+	const globalData = getApp().globalData		
+	import citem from '@/components/common/item.nvue'
+	export default {
+		components: {
+			citem
+		},
+		computed: {
+			i18n() {
+				return globalData.$t('index')
+			}
+		},
+	}
+</script>
+
+<style scoped lang="scss">
+	.c-list {
+		margin-top: 40rpx;
+	}
+
+	.c-list__header {
+		padding-left: 40rpx;
+		padding-right: 40rpx;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.c-list__tab {		
+		padding-left: 30rpx;
+		padding-right: 30rpx;
+	}
+
+	.c-list__text {
+		text-align: center;
+		font-size: $font-small-3;
+		color: $color-gray-4;
+	}
+
+	.c-list__text--active {
+		color: $color-main;
+	}
+</style>

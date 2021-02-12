@@ -1,0 +1,110 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/demo/all_page",
+			"style": {
+				"navigationBarTitleText": "所有页面"
+			}
+		},	
+		{
+			"path": "pages/detail/index",
+			"style": {
+				"navigationBarTitleText": "店舗詳細"
+			}
+		},		
+		{
+			"path": "pages/account/collect",
+			"style": {
+				"navigationBarTitleText": "お気に入り"
+			}
+		},	
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "ホーム"
+			}
+		},	
+		{
+			"path": "pages/history/index",
+			"style": {
+				"navigationBarTitleText": "注文履歴"
+			},
+			"app-plus": {
+				"scrollIndicator": "none"
+			}
+		},
+		{
+			"path": "pages/demo/nav_btn",
+			"style": {
+				"navigationBarTitleText": "导航按钮"
+			}
+		},
+		{
+			"path": "pages/sale/index",
+			"style": {
+				"navigationBarTitleText": "直売"
+			}
+		},
+		{
+			"path": "pages/demo/controls",
+			"style": {
+				"navigationBarTitleText": "控件"
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "Login"
+			}
+		},
+		// {
+		// 	"path": "pages/index/index",
+		// 	"style": {
+		// 		"navigationBarTitleText": "ホーム"
+		// 	}
+		// },
+		{
+			"path": "pages/order/index",
+			"style": {
+				"navigationBarTitleText": "注文"
+			}
+		},
+		{
+			"path": "pages/account/index",
+			"style": {
+				"navigationBarTitleText": "アカウント"
+			}
+		},
+		{
+			"path": "pages/demo/index",
+			"style": {
+				"navigationBarTitleText": "demo"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F9F9F9",
+		"backgroundColor": "#F9F9F9"
+	},
+	"tabBar": {
+		"color": "#B4B4B4",
+		"selectedColor": "#FCCC00",
+		"borderStyle": "#B4B4B4",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"text": "ホーム"
+		}, {
+			"pagePath": "pages/sale/index",
+			"text": "直売"
+		}, {
+			"pagePath": "pages/order/index",
+			"text": "注文"
+		}, {
+			"pagePath": "pages/account/index",
+			"text": "アカウント"
+		}]
+	}
+}

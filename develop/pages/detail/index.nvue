@@ -1,0 +1,121 @@
+<template>
+	<cbody>
+		<view class="c-detail">
+			<view class="c-header" id="header" ref="detailHeader">
+				<shopInfo></shopInfo>
+			</view>
+			<view class="c-container" :class="isShowFood ? 'c-container--show' : ''">
+				<cfood :height="this.targetHeight"></cfood>
+			</view>
+			<view class="c-bottom" id="bottom" ref="detailBottom">
+				<ccart></ccart>
+			</view>
+		</view>
+	</cbody>
+</template>
+
+<script>
+	// 通过dom获取特定节点的样式信息
+	// #ifdef APP-PLUS
+	const dom = weex.requireModule('dom');
+	// #endif	
+	// 用不滚动的版本
+	import cbody from '@/components/common/body_no_scroll.nvue'
+	import shopInfo from '@/components/common/shop_info.nvue'
+	import cfood from '@/components/detail/food.nvue'
+	import ccart from '@/components/common/bottom_cart.nvue'
+	// Get the globalData
+	const globalData = getApp().globalData
+	export default {
+		components: {
+			cbody,
+			shopInfo,
+			cfood,
+			ccart
+		},
+
+		computed: {
+			i18n() {
+				return globalData.$t('detail')
+			}
+		},
+
+		data() {
+			return {
+				headerHeight: 0,
+				bottomHeight: 83,
+				windowHeight: 0,
+				// 需要计算出来的高度
+				targetHeight: 0,
+				isShowFood: false
+			}
+		},
+
+		onReady() {
+			// 动态设置导航标题
+			const {
+				navbar
+			} = this.i18n;
+			uni.setNavigationBarTitle({
+				title: navbar
+			});
+			this.getHeights(() => {
+				console.log('complete')
+				this.targetHeight = this.windowHeight - this.headerHeight - this.bottomHeight
+				console.log('targetHeight', this.targetHeight)
+				this.isShowFood = true
+			})
+		},
+
+		methods: {
+			getHeights(callback) {
+				// 获取屏幕可用高度
+				const res = uni.getSystemInfoSync();
+				this.windowHeight = res.windowHeight
+				// console.log('windowHeight', this.windowHeight)
+				// #ifdef APP-PLUS
+				// 获取固定节点高度
+				dom.getComponentRect(this.$refs.detailHeader, res => {
+					this.headerHeight = res.size.height;
+					// console.log('getComponentRect headerHeight', this.headerHeight)
+					callback ? callback() : null
+				});
+				// #endif
+				// #ifdef MP-WEIXIN || H5 || MP-QQ
+				uni.createSelectorQuery().in(this).select('#header').fields({
+					dataset: true,
+					size: true,
+				}, (res) => {
+					this.headerHeight = res.height;
+					callback ? callback() : null
+				}).exec();
+				// #endif
+			},
+		}
+	}
+</script>
+
+<style scoped lang="scss">
+	// page {
+	// 	background-color: $color-gray-2;
+	// }	
+	.c-detail {
+		padding-bottom: 166rpx;
+	}
+
+	.c-bottom {
+		// height: 166rpx;
+		// border: 1px solid red;
+	}
+
+	.c-container {		
+		opacity: 0;
+		transition-property: opacity;
+		transition-duration: 0.2s;
+		transition-timing-function: ease;
+	}
+
+	.c-container--show {
+		opacity: 1;
+	}
+</style>

@@ -1,0 +1,80 @@
+<template>
+	<cbody>
+		<view class="c-shop">
+			<view class="c-header">
+				<csearch></csearch>
+			</view>
+			<cbanner></cbanner>
+			<ctypes></ctypes>
+			<citem></citem>
+			<citem></citem>
+			<citem></citem>
+		</view>
+	</cbody>
+</template>
+
+<script>
+	import cbody from '@/components/common/body.nvue'
+	import csearch from '@/components/common/search.nvue'
+	import cbanner from '@/components/sale/banner.nvue'
+	import ctypes from '@/components/sale/types.nvue'
+	import citem from '@/components/common/item.nvue'
+	// Get the globalData
+	const globalData = getApp().globalData		
+	export default {
+		components: {
+			cbody,
+			csearch,
+			cbanner,
+			ctypes,
+			citem
+		},
+		data() {
+			return {}
+		},
+
+		onLoad() {
+
+		},
+
+		methods: {
+
+		},
+
+		computed: {
+			i18n() {
+				return globalData.$t('sale')
+			}
+		},
+
+		onShow() {
+			// 动态设置tabBar标题
+			const tabBar = globalData.$t('tabBar');
+			uni.setTabBarItem({
+				index: 1,
+				text: tabBar.sale
+			})
+		},
+
+		onReady() {
+			// 动态设置导航标题
+			const {
+				navbar
+			} = this.i18n;
+			uni.setNavigationBarTitle({
+				title: navbar
+			});
+		}
+
+	}
+</script>
+
+<style scoped lang="scss">
+	// page {
+	// 	background-color: $color-gray-2;
+	// }	
+	.c-header {
+		background-color: white;
+		padding: 16rpx 32rpx;
+	}
+</style>

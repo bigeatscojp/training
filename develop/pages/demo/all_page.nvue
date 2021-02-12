@@ -1,0 +1,76 @@
+<template>
+	<view class="c-list">
+		<view class="c-list__item" v-for="(item,index) in list" :key="index" @click="goToPage(index)">
+			<text>{{item.title}}</text>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				list: [{
+					title: 'ホーム',
+					url: '/pages/index/index',
+					isTab: true
+				}, {
+					title: '直売',
+					url: '/pages/sale/index',
+					isTab: true
+				}, {
+					title: '店舗詳細',
+					url: '/pages/detail/index',
+					isTab: false
+				}, {
+					title: 'お気に入り',
+					url: '/pages/account/collect',
+					isTab: false
+				}, {
+					title: '注文履歴',
+					url: '/pages/history/index',
+					isTab: false
+				}, {
+					title: '控件',
+					url: '/pages/demo/controls',
+					isTab: false
+				}, ]
+			}
+		},
+		methods: {
+			goToPage(index) {
+				if (this.list[index].isTab) {
+					uni.switchTab({
+						url: this.list[index].url,
+						fail(obj) {
+							console.log('fail')
+							console.log(obj)
+						},
+						success() {
+							console.log('success')
+						}
+					})
+				} else {
+					uni.navigateTo({
+						url: this.list[index].url,
+						fail(obj) {
+							console.log('fail')
+							console.log(obj)
+						},
+						success() {
+							console.log('success')
+						}
+					})
+				}
+			}
+		}
+	}
+</script>
+
+<style>
+	.c-list__item {
+		padding: 16px;
+		border-bottom-color: #333333;
+		border-bottom-width: 1px;
+	}
+</style>

@@ -1,0 +1,69 @@
+<template>
+	<cbody>
+		<view class="c-history">
+			<recommend></recommend>
+			<view v-for="(item,index) in list" :key="index">
+				<itemDate></itemDate>
+			</view>
+		</view>
+	</cbody>
+</template>
+
+<script>
+	import recommend from '@/components/history/recommend.nvue'
+	import itemDate from '@/components/history/item_date.nvue'
+	import cbody from '@/components/common/body.nvue'
+	// Get the globalData
+	const globalData = getApp().globalData	
+	export default {
+		components: {			
+			cbody,
+			recommend,
+			itemDate
+		},
+		data() {
+			return {
+				// 定义的数据
+				list: [1, 2],
+			}
+		},
+
+		onLoad() {
+
+		},
+
+		methods: {
+
+		},
+
+		computed: {
+			// 获取本页面对应的国际化语言包，这里的xxx需要自行替换
+			i18n() {
+				return globalData.$t('history')
+			}
+		},
+
+		onShow() {
+
+		},
+
+		onReady() {
+			// console.log('onReady')
+			// 动态设置导航标题
+			const {
+				navbar
+			} = this.i18n;
+			uni.setNavigationBarTitle({
+				title: navbar
+			});
+		}
+
+	}
+</script>
+
+<style scoped lang="scss">
+	// nvue不支持对page进行样式处理
+	// page {
+	// 	background-color: $color-gray-2;
+	// }
+</style>

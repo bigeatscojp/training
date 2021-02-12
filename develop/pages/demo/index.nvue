@@ -1,0 +1,65 @@
+<template>
+	<cbody>
+		<!-- c-xx需要自己修改 -->
+		<view class="c-xxx">
+			<!-- 页面内容请在这里面编写 -->
+			<view class="">
+				
+			</view>
+		</view>
+	</cbody>
+</template>
+
+<script>
+	import cbody from '@/components/common/body.nvue'
+	// Get the globalData
+	const globalData = getApp().globalData	
+	export default {
+		components: {			
+			cbody,
+		},
+		data() {
+			return {
+				// 定义的数据
+			}
+		},
+
+		onLoad() {
+
+		},
+
+		methods: {
+
+		},
+
+		computed: {
+			// 获取本页面对应的国际化语言包，这里的xxx需要自行替换
+			i18n() {
+				return globalData.$t('xxx')
+			}
+		},
+
+		onShow() {
+
+		},
+
+		onReady() {
+			// console.log('onReady')
+			// 动态设置导航标题
+			const {
+				navbar
+			} = this.i18n;
+			uni.setNavigationBarTitle({
+				title: navbar
+			});
+		}
+
+	}
+</script>
+
+<style scoped lang="scss">
+	// nvue不支持对page进行样式处理
+	// page {
+	// 	background-color: $color-gray-2;
+	// }
+</style>

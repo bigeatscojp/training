@@ -1,0 +1,101 @@
+<template>
+	<view class="c-cart">
+		<view class="c-cart__left">
+			<view class="c-cart__icon">
+				<image class="c-cart__image" src="../../static/test.jpeg" mode="aspectFill"></image>
+				<view class="c-cart__badge">
+					<text class="c-cart__badge-number">1</text>
+				</view>
+			</view>
+			<view class="c-price">
+				<view class="c-price__up">
+					<text class="c-price__text">¥ 1,160</text>
+				</view>
+				<view class="c-price__down">
+					<text class="c-price__text c-price__text--small">- 50 = 1,110</text>
+				</view>
+			</view>
+		</view>
+		<view class="">
+			<button class="c-button c-button--primary c-button--small">
+				<text class="c-button__text c-button__text--primary c-button__text--small">{{i18n.goToCart}}</text>
+			</button>
+		</view>
+	</view>
+</template>
+
+<script>
+	// Get the globalData
+	const globalData = getApp().globalData
+	export default {
+		computed: {
+			i18n() {
+				return globalData.$t('bottomCart')
+			}
+		},
+	}
+</script>
+
+<style scoped lang="scss">
+	@import '@/common/scss/controls/button.scss';
+
+	.c-cart {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		background-color: $color-gray-2;
+		height: 166rpx;
+		padding: 30rpx 46rpx 30rpx 46rpx;
+	}
+
+	.c-cart__left {
+		flex-direction: row;
+	}
+
+	.c-cart__icon {
+		position: relative;
+	}
+
+	.c-cart__badge {
+		height: 40rpx;
+		width: 40rpx;
+		background-color: $color-main;
+		justify-content: center;
+		align-items: center;
+		border-radius: 40rpx;
+
+		position: absolute;
+		top: 0;
+		right: -20rpx;
+	}
+
+	.c-cart__badge-number {
+		font-size: $font-normal;
+		font-weight: 600;
+	}
+
+	.c-cart__image {
+		height: 90rpx;
+		width: 90rpx;
+	}
+
+	.c-price {
+		margin-left: 46rpx;
+		justify-content: space-between;
+	}
+
+	.c-price__text {
+		font-size: $font-big-2;
+		font-weight: 600;
+		color: #383838;
+	}
+
+	.c-price__text--small {
+		font-size: $font-small-2;
+		color: $color-gray-3;
+	}
+</style>

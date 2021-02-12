@@ -1,0 +1,23 @@
+.c-input {
+	width: 570rpx;
+	height: 80rpx;
+	border-radius: 20rpx;
+	font-size: $font-big-3;	
+	line-height: 80rpx;
+	text-align: center;
+	background-color: $color-gray-2;
+	padding-left: 34rpx;
+	padding-right: 34rpx;
+}
+.c-input--left {
+	text-align: left;
+}
+.c-input--bold {
+	font-weight: 500;
+}
+.c-input--long {
+	width: 664rpx;
+	padding-left: 30rpx;
+	padding-right: 30rpx;
+	font-size: $font-normal;
+}

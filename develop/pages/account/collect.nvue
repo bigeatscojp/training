@@ -1,0 +1,74 @@
+<template>
+	<cbody :isWhite="isWhite">
+		<view class="c-collect">
+			<!-- 页面内容请在这里面编写 -->
+			<view v-for="(item,index) in list" :key="index">
+				<item></item>
+				<view class="c-line">
+					
+				</view>
+			</view>
+		</view>
+	</cbody>
+</template>
+
+<script>
+	import cbody from '@/components/common/body.nvue'
+	import item from '@/components/common/shop_info.nvue'
+	// Get the globalData
+	const globalData = getApp().globalData	
+	export default {
+		components: {			
+			cbody,
+			item
+		},
+		data() {
+			return {
+				// 定义的数据
+				list: [1,2,3],
+				isWhite: true
+			}
+		},
+
+		onLoad() {
+
+		},
+
+		methods: {
+
+		},
+
+		computed: {
+			i18n() {
+				return globalData.$t('accountCollect')
+			}
+		},
+
+		onShow() {
+
+		},
+
+		onReady() {
+			// console.log('onReady')
+			// 动态设置导航标题
+			const {
+				navbar
+			} = this.i18n;
+			uni.setNavigationBarTitle({
+				title: navbar
+			});
+		}
+
+	}
+</script>
+
+<style scoped lang="scss">
+	// nvue不支持对page进行样式处理
+	// page {
+	// 	background-color: $color-gray-2;
+	// }
+	.c-line {
+		height: 16rpx;
+		background-color: $color-gray-2;
+	}
+</style>

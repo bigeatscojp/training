@@ -1,0 +1,158 @@
+<template>
+	<view class="c-header">
+		<view class="c-header__main">
+			<view>
+				<image class="c-header__image" src="../../static/test.jpeg" mode="aspectFill"></image>
+			</view>
+			<view class="c-header__info">
+				<view>
+					<text class="c-header__title">サイゼリヤ Saizeriya（川口店）</text>
+				</view>
+				<view class="c-header__score">
+					<view class="c-header__l-stars">
+						<image class="c-header__stars" src="../../static/test.jpeg" mode="aspectFill"></image>
+						<image class="c-header__stars" src="../../static/test.jpeg" mode="aspectFill"></image>
+						<image class="c-header__stars" src="../../static/test.jpeg" mode="aspectFill"></image>
+						<image class="c-header__stars" src="../../static/test.jpeg" mode="aspectFill"></image>
+						<image class="c-header__stars" src="../../static/test.jpeg" mode="aspectFill"></image>
+					</view>
+					<view class="c-header__l-text">
+						<text class="c-header__text">6.5キロ</text>
+					</view>
+				</view>
+				<view class="c-header__subinfo">
+					<view class="c-header__l-text">
+						<text class="c-header__text">6.5キロ</text>
+					</view>
+					<view class="c-header__l-text">
+						<text class="c-header__text">35-40min</text>
+					</view>
+					<view class="c-header__l-text">
+						<text class="c-header__text">Pickup可能</text>
+					</view>
+				</view>
+				<view class="c-header__subinfo">
+					<view class="c-header__l-text">
+						<text class="c-header__text">最低配達可能金額 ¥ 1200</text>
+					</view>
+					<view class="c-header__l-text">
+						<text class="c-header__text">3km以内送料無料</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="c-header__l-comment">
+			<text class="c-header__comment">“安心の品質、便利な配達。野菜や果物は新鮮さが一番！”</text>
+		</view>
+		<view class="c-header__tags">
+			<view class="c-header__tagitem">
+				<text class="c-header__tagtext">単月販売数1000突破!</text>
+			</view>
+			<view class="c-header__tagitem">
+				<text class="c-header__tagtext">20円以上ご購入</text>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	// Get the globalData
+	const globalData = getApp().globalData
+	export default {
+		computed: {
+			i18n() {
+				return globalData.$t('index')
+			}
+		},
+	}
+</script>
+
+<style scoped lang="scss">
+	.c-header {
+		background-color: white;
+		padding: 34rpx 64rpx 34rpx 64rpx;
+	}
+
+	.c-header__main {
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	.c-header__image {
+		width: 160rpx;
+		height: 160rpx;
+		border-radius: 20rpx;
+	}
+
+	.c-header__info {
+		margin-left: 16rpx;
+		justify-content: space-between;
+	}
+
+	.c-header__score {
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.c-header__l-stars {
+		flex-direction: row;
+	}
+
+	.c-header__stars {
+		height: 24rpx;
+		width: 24rpx;
+		margin-right: 8rpx;
+	}
+
+	.c-header__title {
+		font-weight: bold;
+		font-size: $font-normal;
+	}
+
+	.c-header__subinfo {
+		flex-direction: row;
+	}
+
+	.c-header__l-text {
+		margin-right: 8rpx;
+	}
+
+	.c-header__text {
+		color: $color-gray-3;
+		font-size: $font-small-2;
+	}
+
+	.c-header__l-comment {
+		margin-top: 28rpx;
+	}
+
+	.c-header__comment {
+		font-size: $font-small-2;
+	}
+
+	.c-header__tags {
+		flex-direction: row;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		margin-top: 20rpx;
+	}
+
+	.c-header__tagitem {
+		justify-content: center;
+		align-items: center;				
+		padding-top: 4rpx;
+		padding-bottom: 4rpx;
+		padding-left: 20rpx;
+		padding-right: 20rpx;
+		background-color: $color-main;
+		margin-right: 20rpx;
+		border-radius: 10rpx;
+		margin-top: 20rpx;
+		
+	}
+
+	.c-header__tagtext {
+		font-weight: bold;
+		font-size: $font-small-2;
+	}
+</style>

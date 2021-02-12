@@ -1,0 +1,60 @@
+<template>
+	<view class="c-types">
+		<view class="c-types__item" v-for="(item, index) in list" v-bind:key="item">
+			<view>
+				<image class="c-types__image" src="../../static/test.jpeg" mode="aspectFill"></image>
+			</view>
+			<view class="c-types__name">
+				<text class="c-types__text">超市</text>
+			</view>
+		</view>
+
+	</view>
+</template>
+
+<script>
+	// Get the globalData
+	const globalData = getApp().globalData	
+	export default {
+		computed: {
+			i18n() {
+				return globalData.$t('index')
+			}
+		},
+		data() {
+			return {
+				list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+			}
+		},
+	}
+</script>
+
+<style scoped lang="scss">
+	.c-types {
+		background-color: white;
+		padding: 20rpx 5rpx;
+		flex-direction: row;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	}
+
+	.c-types__item {
+		padding: 20rpx 36rpx;
+	}
+
+	.c-types__image {
+		width: 76rpx;
+		height: 76rpx;
+		border-radius: 20rpx;
+	}
+
+	.c-types__name {
+		margin-top: 20rpx;		
+	}
+
+	.c-types__text {
+		text-align: center;
+		color: $color-gray-3;
+		font-size: $font-small-2;
+	}
+</style>
