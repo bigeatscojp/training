@@ -1,38 +1,38 @@
 <template>
 	<view class="c-food">
 		<view class="c-type">
-			<scroll-view class="c-type__container" scroll-y="true">
+			<scroll-view class="c-type__container" scroll-y="true" :style="{ height:this.height+'px' }">
 				<view class="c-type__item" v-for="(item, index) in list1" v-bind:key="item">
-					<text>果物</text>
+					<text class="c-type__text">果物</text>
 				</view>
 			</scroll-view>
 		</view>
 		<view class="c-list">
-			<scroll-view class="c-list__container" scroll-y="true">
+			<scroll-view class="c-list__container" scroll-y="true" :style="{ height:this.height+'px' }">
 				<view class="c-list__item" v-for="(item, index) in list2" v-bind:key="item">
 					<view class="c-list__wrapper">
-						<view class="c-list__image">
-							<image src="../../static/test.jpeg" mode="aspectFill"></image>
+						<view>
+							<image class="c-list__image" src="../../static/test.jpeg" mode="aspectFill"></image>
 						</view>
 						<view class="c-list__subwrapper">
 							<view class="c-list__info">
-								<view class="c-list__name">
-									<text>极品草莓</text>
+								<view class="c-list__l-name">
+									<text class="c-list__name">极品草莓</text>
 								</view>
-								<view class="c-list__price">
-									<text>¥ 790</text>
+								<view class="c-list__l-price">
+									<text class="c-list__price">¥ 790</text>
 								</view>
 							</view>
 							<view class="c-list__tool">
 								<view class="c-list__area">
-									<view class="c-list__minus">
-										<text>-</text>
+									<view class="c-list__l-minus">
+										<text class="c-list__minus">-</text>
 									</view>
-									<view class="c-list__number">
-										<text>1</text>
+									<view class="c-list__l-number">
+										<text class="c-list__number">1</text>
 									</view>
-									<view class="c-list__plus">
-										<text>+</text>
+									<view class="c-list__l-plus">
+										<text class="c-list__plus">+</text>
 									</view>
 								</view>
 							</view>
@@ -45,10 +45,17 @@
 </template>
 
 <script>
+	// Get the globalData
+	const globalData = getApp().globalData
 	export default {
+		props: {
+			height: {
+				type: Number
+			}
+		},
 		computed: {
 			i18n() {
-				return this.$t('index')
+				return globalData.$t('index')
 			}
 		},
 		data() {
@@ -63,6 +70,7 @@
 <style scoped lang="scss">
 	.c-food {
 		flex-direction: row;
+		padding-top: 16rpx;
 	}
 
 	.c-type {
@@ -73,21 +81,21 @@
 		height: 80rpx;
 		padding-left: 26rpx;
 		padding-right: 26rpx;
-		background: $color-gray-2;
+		background-color: $color-gray-2;
 		justify-content: center;
+	}
 
-		text {
-			font-size: $font-small-2;
-		}
+	.c-type__text {
+		font-size: $font-small-2;
 	}
 
 	.c-type__item--active {
-		background: white;
+		background-color: white;
+	}
 
-		text {
-			font-weight: bold;
-			color: $color-main;
-		}
+	.c-type__text--active {
+		font-weight: bold;
+		color: $color-main;
 	}
 
 	.c-list {
@@ -100,64 +108,64 @@
 	}
 
 	.c-list__wrapper {
-		border-bottom: 2rpx solid $color-gray-2;
+		border-bottom-color: $color-gray-2;
+		border-bottom-width: 2rpx;
+		border-bottom-style: solid;
 		padding: 20rpx 40rpx 20rpx 0;
 		flex-direction: row;
 		justify-content: flex-start;
 	}
-	
+
 	.c-list__image {
-		image {
-			width: 100rpx;
-			height: 100rpx;
-			border-radius: 20rpx;
-		}
+		width: 100rpx;
+		height: 100rpx;
+		border-radius: 20rpx;
 	}
-	
+
 	.c-list__subwrapper {
 		width: 354rpx;
 		margin-left: 20rpx;
 		flex-direction: row;
-		justify-content: space-between;		
+		justify-content: space-between;
 	}
-	
+
 	.c-list__name,
 	.c-list__price,
-	.c-list__number{
-		text {
-			color: $color-gray-4;
-			font-size: $font-small-2;
-		}
+	.c-list__number {
+		color: $color-gray-4;
+		font-size: $font-small-2;
 	}
-	
-	.c-list__price {
+
+	.c-list__l-price {
 		margin-top: 10rpx;
 	}
-	
+
 	.c-list__area {
 		flex-direction: row;
 	}
-	
-	.c-list__minus,
-	.c-list__plus {
+
+	.c-list__l-minus,
+	.c-list__l-plus {
 		width: 30rpx;
 		height: 30rpx;
 		line-height: 30rpx;
 		background-color: $color-main;
-		text-align: center;
 		justify-content: center;
 		border-radius: 100%;
-		text {
-			font-size: $font-small-3;
-			font-weight: bold;
-		}
 	}
-	
-	.c-list__number {
+
+	.c-list__minus,
+	.c-list__plus {
+		text-align: center;
+		font-size: $font-small-3;
+		font-weight: bold;
+	}
+
+	.c-list__l-number {
 		padding-left: 24rpx;
 		padding-right: 24rpx;
 	}
-	
+
 	.c-list__tool {
 		justify-content: flex-end;
 	}

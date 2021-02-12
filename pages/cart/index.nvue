@@ -1,7 +1,7 @@
 <template>
 	<cbody>
 		<!-- c-xx需要自己修改 -->
-		<view class="c-xxx">
+		<view class="c-cart">
 			<!-- 页面内容请在这里面编写 -->
 			<view class="">
 				
@@ -35,7 +35,7 @@
 		computed: {
 			// 获取本页面对应的国际化语言包，这里的xxx需要自行替换
 			i18n() {
-				return globalData.$t('xxx')
+				return globalData.$t('cart')
 			}
 		},
 

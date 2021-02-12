@@ -1,0 +1,82 @@
+<template>
+	<view class="c-recommend">
+		<view class="c-recommend__l-title">
+			<text class="c-recommend__title">{{i18n.orderNum}}</text>
+		</view>
+		<scroll-view scroll-x="true" show-scrollbar="false" class="c-recommend__scroll">
+			<view class="c-recommend__list">
+				<view class="c-recommend__item-container" v-for="(item,index) in list" :key="index">
+					<item></item>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+</template>
+
+<script>
+	import item from '@/components/history/item_recommend.nvue'
+	// Get the globalData
+	const globalData = getApp().globalData
+	export default {
+		components: {
+			item
+		},
+		computed: {
+			// 获取本组件对应的国际化语言包，这里的xxx需要自行替换，这里组件如果是固定给某个页面使用的话，可以把该组件的语言包定义在那个页面
+			i18n() {
+				return globalData.$t('history')
+			},
+
+		},
+		data() {
+			return {
+				// 定义的数据
+				list: [1, 2, 3, 4, 5, 6],
+				num: 10
+			}
+		},
+	}
+</script>
+
+<style scoped lang="scss">
+	.c-recommend {
+		background-color: white;
+		padding: 40rpx 40rpx 26rpx 40rpx;
+	}
+
+	.c-recommend__title {
+		color: $color-gray-3;
+		font-size: $font-normal;
+	}
+	
+	.c-recommend__scroll {
+		margin-top: 8rpx;
+		/* #ifdef APP-PLUS */
+		flex: 1;
+		/* #endif */
+		flex-direction: row;
+		/* #ifndef APP-PLUS */
+		white-space: nowrap;
+		width: 100%;
+		/* #endif */
+	}
+
+	/* #ifndef APP-NVUE */
+	.c-recommend__scroll ::-webkit-scrollbar {
+		display: none;
+		width: 0 !important;
+		height: 0 !important;
+		-webkit-appearance: none;
+		background: transparent;
+	}	
+	/* #endif */
+	
+	.c-recommend__list {
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	.c-recommend__item-container {
+		margin-right: 36rpx;
+	}
+</style>

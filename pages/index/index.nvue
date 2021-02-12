@@ -1,27 +1,32 @@
 <template>
-	<view class="c-index">
-		<cheader></cheader>
-		<cbanner></cbanner>
-		<ctags></ctags>
-		<cpopular></cpopular>
-		<clist></clist>
-	</view>
+	<cbody>
+		<view class="c-index">
+			<cheader></cheader>
+			<cbanner></cbanner>
+			<ctags></ctags>
+			<cpopular></cpopular>
+			<clist></clist>
+		</view>
+	</cbody>
 </template>
 
 <script>
-	import loading from '@/components/loading/loading.vue'
+	import cbody from '@/components/common/body.nvue'
 	import cheader from '@/components/index/header.nvue'
 	import cbanner from '@/components/index/banner.nvue'
 	import ctags from '@/components/index/tags.nvue'
 	import cpopular from '@/components/index/popular.nvue'
 	import clist from '@/components/index/list.nvue'
+	// Get the globalData
+	const globalData = getApp().globalData	
 	export default {
 		components: {
-		  cheader,
-		  cbanner,
-		  ctags,
-		  cpopular,
-		  clist
+			cbody,
+			cheader,
+			cbanner,
+			ctags,
+			cpopular,
+			clist
 		},
 		data() {
 			return {
@@ -34,46 +39,49 @@
 				indicatorActiveColor: 'white'
 			}
 		},
-		
+
 		onLoad() {
 
 		},
-		
+
 		methods: {
 
 		},
-		
-		computed: {  
-			i18n () {  
-			 return this.$t('index')  
-			}  
+
+		computed: {
+			i18n() {
+				return globalData.$t('index')
+			}
 		},
-		
+
 		onShow() {
 			// console.log('onShow')
 			// 动态设置tabBar标题
-			const tabBar = this.$t('tabBar');
+			const tabBar = globalData.$t('tabBar');
 			// console.log(tabBar)
 			uni.setTabBarItem({
 				index: 0,
-				text:tabBar.index
+				text: tabBar.index
 			})
 		},
-		
+
 		onReady() {
 			// console.log('onReady')
 			// 动态设置导航标题
-			const { navbar } = this.i18n;
+			const {
+				navbar
+			} = this.i18n;
 			uni.setNavigationBarTitle({
 				title: navbar
-			});		
+			});
 		}
-		
+
 	}
 </script>
 
 <style scoped lang="scss">
-	page {
-		background: $color-gray-2;
-	}
+	// nvue不支持对page进行样式处理
+	// page {
+	// 	background-color: $color-gray-2;
+	// }
 </style>

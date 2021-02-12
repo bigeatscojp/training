@@ -1,0 +1,39 @@
+<template name="cbody">
+	<view class="c-body" :class="isWhite ? 'c-body--white' : ''">
+		<slot></slot>
+	</view>
+</template>
+
+<script>
+	export default {
+		name: "cbody",
+		props: {
+			isWhite: {
+				type: Boolean,
+				default () {
+					return false
+				}
+			}
+		},
+		data() {
+			return {};
+		}
+	}
+</script>
+
+<style scoped lang="scss">
+	.c-body{
+		background-color: $color-gray-2;
+		flex: 1;
+	}
+	
+	.c-body--white {
+		background-color: white;
+	}
+	
+	/* #ifndef APP-PLUS */
+	.c-body {
+		height: 100%;
+	}	
+	/* #endif */	
+</style>

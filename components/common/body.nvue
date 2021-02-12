@@ -1,0 +1,45 @@
+<template name="cbody">
+	<view class="c-body" :class="isWhite ? 'c-body--white' : ''">
+		<scroll-view scroll-y="true" show-scrollbar="false">
+			<view class="c-body__container">
+				<!-- https://cn.vuejs.org/v2/guide/components-slots.html -->
+				<slot></slot>
+			</view>
+		</scroll-view>
+	</view>
+</template>
+
+<script>
+	export default {
+		name: "cbody",
+		props: {
+			isWhite: {
+				type: Boolean,
+				default () {
+					return false
+				}
+			}
+		},
+		data() {
+			return {};
+		}
+	}
+</script>
+
+<style scoped lang="scss">
+	.c-body {
+		background-color: $color-gray-2;
+		flex: 1;
+	}
+
+	.c-body--white {
+		background-color: white;
+	}
+
+	/* #ifndef APP-PLUS */
+	.c-body {
+		height: 100%;
+	}
+
+	/* #endif */
+</style>

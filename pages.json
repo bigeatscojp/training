@@ -1,15 +1,21 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/demo/all_page",
+			"style": {
+				"navigationBarTitleText": "所有页面"
+			}
+		},	
+		{
 			"path": "pages/detail/index",
 			"style": {
 				"navigationBarTitleText": "店舗詳細"
 			}
-		},	
+		},		
 		{
-			"path": "pages/sale/index",
+			"path": "pages/account/collect",
 			"style": {
-				"navigationBarTitleText": "直売"
+				"navigationBarTitleText": "お気に入り"
 			}
 		},	
 		{
@@ -19,17 +25,32 @@
 			}
 		},	
 		{
-			"path": "pages/demo/index",
+			"path": "pages/history/index",
 			"style": {
-				"navigationBarTitleText": "ホーム"
+				"navigationBarTitleText": "注文履歴"
+			},
+			"app-plus": {
+				"scrollIndicator": "none"
 			}
-		},	
+		},
+		{
+			"path": "pages/demo/nav_btn",
+			"style": {
+				"navigationBarTitleText": "导航按钮"
+			}
+		},
+		{
+			"path": "pages/sale/index",
+			"style": {
+				"navigationBarTitleText": "直売"
+			}
+		},
 		{
 			"path": "pages/demo/controls",
 			"style": {
 				"navigationBarTitleText": "控件"
 			}
-		},	
+		},
 		{
 			"path": "pages/login/index",
 			"style": {
@@ -53,7 +74,13 @@
 			"style": {
 				"navigationBarTitleText": "アカウント"
 			}
-		}						
+		},
+		{
+			"path": "pages/demo/index",
+			"style": {
+				"navigationBarTitleText": "demo"
+			}
+		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -79,5 +106,5 @@
 			"pagePath": "pages/account/index",
 			"text": "アカウント"
 		}]
-	}	
+	}
 }

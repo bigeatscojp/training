@@ -1,37 +1,66 @@
 .c-button {
 	width: 570rpx;
 	height: 96rpx;	
-	font-size: $font-big-3;
-	font-weight: bold;
 	line-height: 96rpx;
 	border-radius: 50rpx;
-	border: none;
+	border-color: $color-main;
+}
+/* #ifndef APP-PLUS */
+.c-button {
+	outline: none;
+}
+/* #endif */
+.c-button__text {
+	font-size: $font-big-3;
+	font-weight: bold;	
 }
 //285px 250px 138px
 .c-button--primary {
 	background-color: $color-main;
-	color: $color-black-1;
-	
+}
+.c-button__text--primary {
+	color: $color-black-1;	
+}
+/* #ifndef APP-PLUS */
+.c-button--primary{
 	&.button-hover {
 		background-color: rgba($color-main, .7);
 		color: rgba($color-black-1, .7);
 	}
+	
 }
-.c-button[disabled],
-.c-button--disabled {
+/* #endif */	
+/* #ifndef APP-PLUS */
+.c-button[disabled]{
 	background-color: white;
 	color: $color-gray-3;	
-	border: 2rpx solid $color-gray-3;
+	border-color: $color-gray-3;
+	border-width: 2rpx;
+	border-style: solid;
+}
+/* #endif */
+.c-button--disabled {
+	background-color: white;	
+	border-color: $color-gray-3;
+	border-width: 2rpx;
+	border-style: solid;
+}
+.c-button__text--disabled {
+	color: $color-gray-3;
 }
 .c-button--small {
 	width: 276rpx;
 	height: 64rpx;
-	line-height: 64rpx;
+	line-height: 64rpx;	
+}
+.c-button__text--small {
 	font-size: $font-big-2;
 }
 .c-button--medium {
 	width: 500rpx;
 	height: 80rpx;
-	line-height: 80rpx;
+	line-height: 80rpx;	
+}
+.c-button__text--medium {
 	font-size: $font-normal;
 }

@@ -10,10 +10,12 @@
 </template>
 
 <script>
+	// Get the globalData
+	const globalData = getApp().globalData	
 	export default {
 		computed: {  
 			i18n () {  
-			 return this.$t('index')  
+			 return globalData.$t('index')  
 			}  
 		},
 		data() {

@@ -1,45 +1,31 @@
 <template>
 	<view class="c-tags">
-		<view class="c-tags__item">
-			<text>中華料理</text>
-		</view>
-		<view class="c-tags__item">
-			<text>中華料理</text>
-		</view>
-		<view class="c-tags__item">
-			<text>中華料理</text>
-		</view>
-		<view class="c-tags__item">
-			<text>中華料理</text>
-		</view>
-		<view class="c-tags__item">
-			<text>中華料理</text>
-		</view>
-		<view class="c-tags__item">
-			<text>中華料理</text>
-		</view>
-		<view class="c-tags__item">
-			<text>中華料理</text>
-		</view>
-		<view class="c-tags__item">
-			<text>中華料理</text>
+		<view class="c-tags__item" v-for="(item, index) in list" v-bind:key="item">
+			<text class="c-tags__text">中華料理</text>
 		</view>
 	</view>
 </template>
 
 <script>
+	// Get the globalData
+	const globalData = getApp().globalData		
 	export default {
 		computed: {  
 			i18n () {  
-			 return this.$t('index')  
+			 return globalData.$t('index')  
 			}  
 		},
+		data() {
+			return {
+				list: [1,2,3,4,5,6,7,8]
+			}
+		},			
 	}
 </script>
 
 <style scoped lang="scss">
 	.c-tags {
-		background: white;
+		background-color: white;
 		padding: 14rpx 20rpx 14rpx 20rpx;;	
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -48,10 +34,12 @@
 	.c-tags__item {
 		margin: 14rpx 15rpx 14rpx 15rpx;
 		border-radius: 20rpx;
-		border: 2rpx solid $color-main;
+		border-color: $color-main;
+		border-style: solid;
+		border-width: 2rpx;
 		padding: 20rpx 30rpx;
-		text {
-			font-size: $font-small-2;
-		}
+	}
+	.c-tags__text {
+		font-size: $font-small-2;
 	}
 </style>

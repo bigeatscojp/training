@@ -1,0 +1,28 @@
+<template>
+	<!-- c-xx需要自己修改 -->
+	<view class="c-xxx">
+		<!-- 组件内容请在这里面编写 -->
+	</view>
+</template>
+
+<script>
+	// Get the globalData
+	const globalData = getApp().globalData
+	export default {
+		computed: {  
+			// 获取本组件对应的国际化语言包，这里的xxx需要自行替换，这里组件如果是固定给某个页面使用的话，可以把该组件的语言包定义在那个页面
+			i18n () {  
+			 return globalData.$t('xxx')  
+			}  
+		},
+		data() {
+			return {
+				// 定义的数据
+			}
+		},		
+	}
+</script>
+
+<style scoped lang="scss">
+	
+</style>

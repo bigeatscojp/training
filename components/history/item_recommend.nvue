@@ -1,0 +1,92 @@
+<template>
+	<view class="c-recommend__item">
+		<view class="c-recommend__l-image">
+			<image class="c-recommend__image" src="../../static/test.jpeg" mode="aspectFill"></image>
+		</view>
+		<view class="c-recommend__l-name">
+			<text class="c-recommend__name">东京拉面之星</text>
+		</view>
+		<view class="c-recommend__adjust">
+			<view class="c-recommend__l-num">
+				<text class="c-recommend__num">{{numText}}</text>
+			</view>
+		</view>
+
+	</view>
+</template>
+
+<script>
+	// Get the globalData
+	const globalData = getApp().globalData
+	export default {
+		props: {
+			num: {
+				type: Number,
+				default () {
+					return 10
+				}
+			}
+		},
+		computed: {
+			// 获取本组件对应的国际化语言包，这里的xxx需要自行替换，这里组件如果是固定给某个页面使用的话，可以把该组件的语言包定义在那个页面
+			i18n() {
+				return globalData.$t('history')
+			},
+			numText() {
+				return globalData.$t('history.number', {
+					num: this.num
+				})
+			}
+		},
+		data() {
+			return {
+				// 定义的数据
+			}
+		},
+	}
+</script>
+
+<style scoped lang="scss">
+	.c-recommend__item {
+		justify-content: center;
+		width: 160rpx;
+	}
+
+	.c-recommend__image {
+		width: 160rpx;
+		height: 160rpx;
+		border-radius: 20rpx;
+	}
+
+	.c-recommend__l-name {
+		margin-top: 8rpx;
+		flex-direction: row;
+		justify-content: center;		
+	}
+
+	.c-recommend__name {
+		color: $color-gray-3;
+		font-size: $font-small-2;
+	}
+
+	.c-recommend__l-num {
+		text-align: center;
+		background-color: $color-main;
+		border-radius: 50rpx;
+		padding-top: 4rpx;
+		padding-bottom: 4rpx;
+		width: 104rpx;
+		flex-direction: row;
+		justify-content: center;		
+	}
+
+	.c-recommend__num {
+		font-size: $font-small-1;
+	}
+	
+	.c-recommend__adjust {
+		flex-direction: row;
+		justify-content: center;
+		margin-top: 8rpx;
+	}
+</style>

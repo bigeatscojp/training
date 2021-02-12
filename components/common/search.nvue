@@ -3,17 +3,19 @@
 		<view class="c-search__icon">
 			<text>icon</text>
 		</view>
-		<view class="c-search__text">
-			<text>新年会</text>
+		<view class="c-search__l-text">
+			<text class="c-search__text">新年会</text>
 		</view>
 	</view>
 </template>
 
 <script>
+	// Get the globalData
+	const globalData = getApp().globalData		
 	export default {
 		computed: {  
 			i18n () {  
-			 return this.$t('index')  
+			 return globalData.$t('index')  
 			}  
 		},
 	}
@@ -32,11 +34,11 @@
 		border-radius: 20rpx;
 		padding: 24rpx;
 	}
-	.c-search__text {
+	.c-search__l-text {
 		padding-left: 14rpx;
-		text {
-			font-size: $font-small-2;
-			color: #979797;
-		}
+	}
+	.c-search__text {
+		font-size: $font-small-2;
+		color: #979797;
 	}
 </style>

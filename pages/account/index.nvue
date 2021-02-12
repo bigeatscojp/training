@@ -1,11 +1,7 @@
 <template>
 	<cbody>
-		<!-- c-xx需要自己修改 -->
-		<view class="c-xxx">
-			<!-- 页面内容请在这里面编写 -->
-			<view class="">
-				
-			</view>
+		<view class="c-account">
+			<text>account</text>
 		</view>
 	</cbody>
 </template>
@@ -13,15 +9,13 @@
 <script>
 	import cbody from '@/components/common/body.nvue'
 	// Get the globalData
-	const globalData = getApp().globalData	
+	const globalData = getApp().globalData		
 	export default {
-		components: {			
+		components: {
 			cbody,
 		},
 		data() {
-			return {
-				// 定义的数据
-			}
+			return {}
 		},
 
 		onLoad() {
@@ -33,18 +27,21 @@
 		},
 
 		computed: {
-			// 获取本页面对应的国际化语言包，这里的xxx需要自行替换
 			i18n() {
-				return globalData.$t('xxx')
+				return globalData.$t('account')
 			}
 		},
 
 		onShow() {
-
+			// 动态设置tabBar标题
+			const tabBar = globalData.$t('tabBar');
+			uni.setTabBarItem({
+				index: 3,
+				text: tabBar.account
+			})
 		},
 
 		onReady() {
-			// console.log('onReady')
 			// 动态设置导航标题
 			const {
 				navbar
@@ -58,8 +55,7 @@
 </script>
 
 <style scoped lang="scss">
-	// nvue不支持对page进行样式处理
 	// page {
 	// 	background-color: $color-gray-2;
-	// }
+	// }	
 </style>

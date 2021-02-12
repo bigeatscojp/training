@@ -1,0 +1,42 @@
+<template>
+	<div>
+
+	</div>
+</template>
+
+<script>
+	export default {
+		onLoad() {
+			this.setBtnStyle()
+		},
+		methods: {
+			getCurrentWebView() {
+				const pages = getCurrentPages();
+				const page = pages[pages.length - 1];
+				// #ifdef APP-PLUS  
+				const currentWebview = page.$getAppWebview(); //页面栈最顶层就是当前webview  
+				return currentWebview
+				// #endif
+			},
+			setBtnStyle() {
+				const currentWebview = this.getCurrentWebView()
+				console.log(currentWebview)
+				console.log(currentWebview.setTitleNViewButtonStyle)
+				// currentWebview.setTitleNViewButtonStyle()
+				// var nTitle = currentWebview.getTitleNView();
+				// nTitle.drawBitmap("@/static/reddot.jpg", {}, {
+				// 	top: '3px',
+				// 	left: '340px',
+				// 	width: '4px',
+				// 	height: '4px'
+				// }); //具体尺寸在商用时需自行计算。红点图在附件里。  
+				// //nview的api非常多，具体参考：http://www.html5plus.org/doc/zh_cn/nativeobj.html#plus.nativeObj.View				
+				// console.log(nTitle)
+			}
+		}
+	}
+</script>
+
+<style>
+
+</style>

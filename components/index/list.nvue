@@ -2,16 +2,16 @@
 	<view class="c-list">
 		<view class="c-list__header">
 			<view class="c-list__tab c-list__tab--active">
-				<text>{{i18n.recommendedOrder}}</text>
+				<text class="c-list__text c-list__text--active">{{i18n.recommendedOrder}}</text>
 			</view>
 			<view class="c-list__tab">
-				<text>{{i18n.popularOrder}}</text>
+				<text class="c-list__text">{{i18n.popularOrder}}</text>
 			</view>
 			<view class="c-list__tab">
-				<text>{{i18n.commentOrder}}</text>
+				<text class="c-list__text">{{i18n.commentOrder}}</text>
 			</view>
 			<view class="c-list__tab">
-				<text>{{i18n.deliverTimeOrder}}</text>
+				<text class="c-list__text">{{i18n.deliverTimeOrder}}</text>
 			</view>
 		</view>
 		<view class="c-list__container">
@@ -22,14 +22,16 @@
 </template>
 
 <script>
-	import citem from '@/components/item/item.nvue'
+	// Get the globalData
+	const globalData = getApp().globalData		
+	import citem from '@/components/common/item.nvue'
 	export default {
 		components: {
-		  citem
-		},		
+			citem
+		},
 		computed: {
 			i18n() {
-				return this.$t('index')
+				return globalData.$t('index')
 			}
 		},
 	}
@@ -39,26 +41,28 @@
 	.c-list {
 		margin-top: 40rpx;
 	}
+
 	.c-list__header {
 		padding-left: 40rpx;
 		padding-right: 40rpx;
 		flex-direction: row;
 		flex-wrap: nowrap;
 		justify-content: center;
-		align-items: center;		
+		align-items: center;
 	}
-	.c-list__tab {
-		text-align: center;
+
+	.c-list__tab {		
 		padding-left: 30rpx;
 		padding-right: 30rpx;
-		text {
-			font-size: $font-small-3;
-			color: $color-gray-4;
-		}
 	}
-	.c-list__tab--active {
-		text {
-			color: $color-main;
-		}
+
+	.c-list__text {
+		text-align: center;
+		font-size: $font-small-3;
+		color: $color-gray-4;
+	}
+
+	.c-list__text--active {
+		color: $color-main;
 	}
 </style>

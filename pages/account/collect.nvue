@@ -1,10 +1,12 @@
 <template>
-	<cbody>
-		<!-- c-xx需要自己修改 -->
-		<view class="c-xxx">
+	<cbody :isWhite="isWhite">
+		<view class="c-collect">
 			<!-- 页面内容请在这里面编写 -->
-			<view class="">
-				
+			<view v-for="(item,index) in list" :key="index">
+				<item></item>
+				<view class="c-line">
+					
+				</view>
 			</view>
 		</view>
 	</cbody>
@@ -12,15 +14,19 @@
 
 <script>
 	import cbody from '@/components/common/body.nvue'
+	import item from '@/components/common/shop_info.nvue'
 	// Get the globalData
 	const globalData = getApp().globalData	
 	export default {
 		components: {			
 			cbody,
+			item
 		},
 		data() {
 			return {
 				// 定义的数据
+				list: [1,2,3],
+				isWhite: true
 			}
 		},
 
@@ -33,9 +39,8 @@
 		},
 
 		computed: {
-			// 获取本页面对应的国际化语言包，这里的xxx需要自行替换
 			i18n() {
-				return globalData.$t('xxx')
+				return globalData.$t('accountCollect')
 			}
 		},
 
@@ -62,4 +67,8 @@
 	// page {
 	// 	background-color: $color-gray-2;
 	// }
+	.c-line {
+		height: 16rpx;
+		background-color: $color-gray-2;
+	}
 </style>

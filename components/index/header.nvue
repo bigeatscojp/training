@@ -4,11 +4,11 @@
 			<view class="c-address__icon">
 				<text>icon</text>
 			</view>
-			<view class="c-address__text">
-				<text>中央区銀座１丁目8-19 BINARYSTAR 株式会社</text>
+			<view>
+				<text class="c-address__text">中央区銀座１丁目8-19 BINARYSTAR 株式会社</text>
 			</view>
-			<view class="c-address__change">
-				<text>{{i18n.addressBtn}}</text>
+			<view class="c-address__btn">
+				<text class="c-address__btntext">{{i18n.addressBtn}}</text>
 			</view>
 		</view>
 		<csearch></csearch>
@@ -16,15 +16,17 @@
 </template>
 
 <script>
-	import csearch from '@/components/search/search.nvue'
+	// Get the globalData
+	const globalData = getApp().globalData		
+	import csearch from '@/components/common/search.nvue'
 	export default {
 		components: {
-		  csearch
-		},		
-		computed: {  
-			i18n () {  
-			 return this.$t('index')  
-			}  
+			csearch
+		},
+		computed: {
+			i18n() {
+				return globalData.$t('index')
+			}
 		},
 	}
 </script>
@@ -32,23 +34,22 @@
 <style scoped lang="scss">
 	.c-header {
 		padding: 30rpx 34rpx;
-		background: white;
+		background-color: white;
 	}
+
 	.c-address {
 		flex-direction: row;
 		flex-wrap: nowrap;
 		justify-content: space-between;
 		align-items: center;
 	}
+
 	.c-address__text {
-		text {
-			font-size: $font-small-3;
-			font-weight: bold;
-		}
+		font-size: $font-small-3;
+		font-weight: bold;
 	}
-	.c-address__change {
-		text {
-			font-size: $font-small-2;
-		}
+
+	.c-address__btntext {
+		font-size: $font-small-2;
 	}
 </style>

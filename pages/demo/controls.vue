@@ -6,16 +6,24 @@
 			</view>
 			<view class="c-list__body">
 				<view class="c-list__item">
-					<button class="c-button c-button--primary">保存する</button>
+					<button class="c-button c-button--primary">
+						<text class="c-button__text">保存する</text>
+					</button>
 				</view>
 				<view class="c-list__item">
-					<button class="c-button c-button--disabled" disabled="disabled">保存する</button>
+					<button class="c-button c-button--disabled" disabled="disabled">
+						<text class="c-button__text c-button__text--disabled">保存する</text>
+					</button>
 				</view>
 				<view class="c-list__item">
-					<button class="c-button c-button--primary c-button--small">保存する</button>
+					<button class="c-button c-button--primary c-button--small">
+						<text class="c-button__text c-button__text--small">保存する</text>
+					</button>
 				</view>
 				<view class="c-list__item">
-					<button class="c-button c-button--primary c-button--medium">保存する</button>
+					<button class="c-button c-button--primary c-button--medium">
+						<text class="c-button__text c-button__text--medium">保存する</text>
+					</button>
 				</view>					
 			</view>
 		</view>		
@@ -38,7 +46,7 @@
 <script>
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 	@import '@/common/scss/controls/button.scss';
 	@import '@/common/scss/controls/input.scss';
 	.c-list__title,

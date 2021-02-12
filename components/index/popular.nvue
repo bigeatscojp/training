@@ -2,26 +2,26 @@
 	<view class="c-popular">
 		<view class="c-popular__header">
 			<view class="c-popular__title">
-				<text>{{i18n.popular}}</text>
+				<text class="c-popular__title-text">{{i18n.popular}}</text>
 			</view>
 			<view class="c-popular__all">
-				<text>{{i18n.allBtn}}</text>
+				<text class="c-popular__all-text">{{i18n.allBtn}}</text>
 			</view>
 		</view>
 		<view class="c-popular__body">
-			<scroll-view class="c-popular__scroll" scroll-x="true">
+			<scroll-view class="c-popular__scroll" scroll-x="true" show-scrollbar="false">
 				<view class="c-popular__list">
 					<view class="c-popular__item" v-for="(item, index) in list" v-bind:key="item">
-						<view class="c-popular__image">
-							<image src="../../static/test.jpeg" mode="aspectFill"></image>
+						<view class="c-popular__l-image">
+							<image class="c-popular__image" src="../../static/test.jpeg" mode="aspectFill"></image>
 						</view>
-						<view class="c-popular__title">
-							<text>東京ラーメン（銀座店）</text>
+						<view class="c-popular__subtitle">
+							<text class="c-popular__subtitle-text">東京ラーメン（銀座店）</text>
 						</view>
 						<view class="c-popular__other">
-							<text>¥2000以上送料無料 35-40min</text>
+							<text class="c-popular__other-text">¥2000以上送料無料 35-40min</text>
 						</view>
-					</view>					
+					</view>
 				</view>
 			</scroll-view>
 		</view>
@@ -29,15 +29,17 @@
 </template>
 
 <script>
+	// Get the globalData
+	const globalData = getApp().globalData
 	export default {
 		data() {
 			return {
-				list: [1,2,3]
+				list: [1, 2, 3]
 			}
-		},			
+		},
 		computed: {
 			i18n() {
-				return this.$t('index')
+				return globalData.$t('index')
 			}
 		},
 	}
@@ -47,56 +49,81 @@
 	.c-popular {
 		margin-top: 16rpx;
 		padding: 26rpx 40rpx;
-		background: white;
+		background-color: white;
 	}
+
 	.c-popular__header {
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
 	}
-	.c-popular__title {
-		text {
-			font-size: $font-normal;
-			font-weight: bold;
-		}
+
+	.c-popular__title-text {
+		font-size: $font-normal;
+		font-weight: bold;
 	}
-	.c-popular__all {
-		text {
-			font-size: $font-small-3;
-			color: $color-gray-3;
-		}
+
+	.c-popular__all-text {
+		font-size: $font-small-3;
+		color: $color-gray-3;
 	}
+
 	.c-popular__body {
 		margin-top: 24rpx;
-		
 	}
+
 	.c-popular__list {
 		flex-direction: row;
 		justify-content: flex-start;
+		padding-right: 40rpx;
 	}
+
 	.c-popular__item {
 		margin-right: 16rpx;
 		width: 300rpx;
 	}
+
 	.c-popular__image {
-		image {
-			height: 180rpx;
-			width: 300rpx;
-			border-radius: 20rpx;			
-		}
+		height: 180rpx;
+		width: 300rpx;
+		border-radius: 20rpx;
 	}
-	.c-popular__title {
+
+	.c-popular__subtitle {
 		margin-top: 14rpx;
-		text {
-			font-size: $font-small-3;
-			color: $color-gray-4;
-		}
 	}
+
+	.c-popular__subtitle-text {
+		font-size: $font-small-3;
+		color: $color-gray-4;
+	}
+
 	.c-popular__other {
 		margin-top: 10rpx;
-		text {
-			font-size: $font-small-2;
-			color: $color-gray-3;			
-		}
 	}
+
+	.c-popular__other-text {
+		font-size: $font-small-2;
+		color: $color-gray-3;
+	}
+
+	.c-popular__scroll {
+		/* #ifdef APP-PLUS */
+		width: 750rpx;
+		/* #endif */
+		flex-direction: row;
+		/* #ifndef APP-PLUS */
+		white-space: nowrap;
+		/* #endif */
+	}
+
+	/* #ifndef APP-NVUE */
+	.c-popular__scroll ::-webkit-scrollbar {
+		display: none;
+		width: 0 !important;
+		height: 0 !important;
+		-webkit-appearance: none;
+		background: transparent;
+	}
+	/* #endif */
 </style>

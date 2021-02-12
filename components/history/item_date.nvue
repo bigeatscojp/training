@@ -1,0 +1,203 @@
+<template>
+	<!-- id : item date的缩写 -->
+	<view class="c-id">
+		<view class="c-id__l-date">
+			<text class="c-id__date">2020/12/15</text>
+		</view>
+		<view class="c-id__list">
+			<view class="c-id__wrap" v-for="(item,index) in list" :key="index">
+				<view class="c-id__item">
+					<view class="c-id__header">
+						<view class="c-id__l-name">
+							<text class="c-id__name">东丸蔬菜（川口店）</text>
+						</view>
+						<view class="c-id__l-status">
+							<text class="c-id__status c-id__status--active">{{i18n.doing}}</text>
+						</view>
+					</view>
+					<view class="c-id__body">
+						<view class="c-list">
+							<view class="c-list__item" v-for="(subitem,index) in item.list" :key="index">
+								<view class="c-list__l-name">
+									<text class="c-list__name">极品草莓</text>
+								</view>
+								<view class="c-list__other">
+									<view class="c-list__l-num">
+										<text class="c-list__num">x 1</text>
+									</view>
+									<view class="c-list__l-price">
+										<text class="c-list__price">¥ 1,202</text>
+									</view>
+								</view>
+							</view>
+						</view>
+						<view class="c-id__l-total">
+							<text class="c-id__total"> ¥ 2,890</text>
+						</view>
+					</view>
+					<view class="c-id__bottom c-btngroup">
+						<view class="c-btngroup__left">
+							<button class="c-btngroup__btn" size="mini"><text class="c-btngroup__text">{{i18n.seeShop}}</text></button>
+						</view>
+						<view class="c-btngroup__right">
+							<button class="c-btngroup__btn" size="mini"><text class="c-btngroup__text">{{i18n.comment}}</text></button>
+						</view>
+					</view>
+				</view>
+				<view class="c-id__line">
+
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	// Get the globalData
+	const globalData = getApp().globalData
+	export default {
+		computed: {
+			// 获取本组件对应的国际化语言包，这里的xxx需要自行替换，这里组件如果是固定给某个页面使用的话，可以把该组件的语言包定义在那个页面
+			i18n() {
+				return globalData.$t('history')
+			}
+		},
+		data() {
+			return {
+				// 定义的数据
+				list: [{
+					list: [1, 2, 3]
+				}, {
+					list: [1, 2, 3]
+				}, {
+					list: [1, 2, 3]
+				}]
+			}
+		},
+	}
+</script>
+
+<style scoped lang="scss">
+	.c-id__l-date {
+		padding: 46rpx 46rpx 16rpx 46rpx;
+	}
+
+	.c-id__date {
+		font-weight: 600;
+		font-size: $font-normal;
+	}
+
+	.c-id__list {}
+
+	.c-id__item {
+		background-color: white;
+		padding: 32rpx 46rpx 16rpx 46rpx;
+	}
+
+	.c-id__line {
+		height: 16rpx;
+		width: 750rpx;
+		background-color: $color-gray-2;
+	}
+
+	.c-id__header {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: 20rpx;
+	}
+
+	.c-id__name {
+		font-weight: bold;
+		font-size: $font-normal;
+	}
+
+	.c-id__status {
+		font-size: $font-small-2;
+		color: $color-gray-3;
+	}
+
+	.c-id__status--active {
+		color: $color-main;
+	}
+
+	.c-list__item {
+		padding-bottom: 8rpx;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.c-list__name,
+	.c-list__num,
+	.c-list__price {
+		color: $color-gray-4;
+		font-size: $font-small-3;
+	}
+
+	.c-list__other {
+		flex-direction: row;
+		justify-content: flex-end;
+	}
+
+	.c-list__l-price {
+		width: 176rpx;
+		flex-direction: row;
+		justify-content: flex-end;
+	}
+
+	.c-id__l-total {
+		flex-direction: row;
+		justify-content: flex-end;
+	}
+
+	.c-id__total {
+		font-size: $font-small-3;
+		font-weight: 600;
+	}
+
+	.c-btngroup {
+		margin-top: 10rpx;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.c-btngroup__left {
+		flex-direction: row;
+		justify-content: flex-end;
+		width: 329rpx;
+		padding-right: 10rpx;
+	}
+
+	.c-btngroup__right {
+		flex-direction: row;
+		justify-content: flex-start;
+		width: 329rpx;
+		padding-left: 10rpx;
+	}
+
+	.c-btngroup__btn {
+		border-radius: 50rpx;
+		border-color: $color-main;
+		border-width: 2rpx;
+		border-style: solid;
+		background-color: white;		
+	}
+	
+	/* #ifndef APP-PLUS */
+	.c-btngroup__btn {
+		min-width: 180rpx;
+	}
+	/* #endif */
+	/* #ifdef APP-PLUS */
+	.c-btngroup__btn {
+		width: 180rpx;
+		padding-top: 4rpx;
+		padding-bottom: 4rpx;
+	}
+	/* #endif */
+	.c-btngroup__text {
+		font-size: $font-small-2;
+		color: $color-main;
+	}
+</style>
