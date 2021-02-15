@@ -13,6 +13,40 @@ $color-blue-1: #0375C7;
 
 $color-red-1: #BE111B;
 $color-red-2: rgba(#F40D0D, .71);
+.c-group__text {
+        color: #b4b4b4;
+        font-size: 12px;
+        text-align: center;
+      }
+      .c-group__input {
+        /* 圆角 */
+        border-radius: 6px;
+        background: #f3f3f3;
+        margin: 0px auto;
+        height: 35px;
+        width: 250px;
+        border: 0;
+      }
+      .c-login__button {
+        width: 200px;
+        height: 35px;
+        margin: 0px auto;
+        margin-top: 325px;
+        background: #fccc00;
+        border-radius: 20px;
+        border: none;
+        font-size: 18px;
+        font-weight: 700;
+        color: #000000;
+      }
+	
+.c-login__message{
+	 color: #b4b4b4;
+	        font-size: 12px;
+	        text-align: center;
+	display: flex; 
+	justify-content: center;
+}
 
 /* 对应缩写 */
 $cm: $color-main;
