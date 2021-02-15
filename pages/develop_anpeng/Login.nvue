@@ -1,0 +1,92 @@
+<template>
+	<view class="c-login">
+		<view class="c-login__top">
+			<view class="l-login__title">
+				<text class="c-login__title">携帯番号またはメールアドレス</text>
+			</view>
+			<view class="l-login__input">
+				<input class="c-login__textBox" v-model="username" />
+			</view>
+			<view class="l-login__title">
+				<text class="c-login__title">パスワード</text>
+			</view>
+			<view class="l-login__input">
+				<input class="c-login__textBox" v-model="password" type="password" />
+			</view>
+		</view>
+		<view class="c-login__bottom">
+			<button class="c-login__button" v-on:click="login">ログイン</button>
+			<text class="c-login__bottomText">by proceeding, you agree to these</text>
+			<text class="c-login__bottomText">Terms and Conditions</text>
+		</view>
+	</view>
+
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				username: '',
+				password: ''
+			}
+		},
+		methods: {
+			login() {
+				console.log(this.username)
+				console.log(this.password)
+				uni.request({
+					url: '/api/login',
+					data: 'username=' + this.username + '&password=' + this.password,
+					success(data) {
+						console.log(data)
+						alert('success')
+					}
+				})
+			}
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	.c-login {
+		justify-content: space-between;
+	}
+
+	/*  #ifdef APP-NVUE  */
+	.c-login {
+		flex: 1;
+	}
+
+	/*  #endif  */
+	/*  #ifndef APP-NVUE  */
+	.c-login {
+		height: 100%;
+	}
+
+	/*  #endif  */
+	// .l-login__title,
+	// .l-login__input {
+	// 	width: 750rpx;
+	// 	flex-direction: row;
+	// 	justify-content: center;
+
+	// 	border: 1rpx solid #555555;
+	// }
+
+	.c-login__top {
+		margin-top: 80rpx;
+	}
+
+	.c-login__bottom {
+		padding-bottom: 80rpx;
+	}
+
+	.l-login__input {
+		border: 1rpx solid red;
+	}
+
+	.c-login__textBox {
+		background-color: #555555;
+	}
+</style>
