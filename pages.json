@@ -1,29 +1,48 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/develop/address",
+			"style": {
+				"navigationBarTitleText": "地址"
+			}
+		},
+		{
+			"path": "pages/develop/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "Login"
+			}
+		},
+
+		{
 			"path": "pages/demo/all_page",
 			"style": {
 				"navigationBarTitleText": "所有页面"
 			}
-		},	
+		},
 		{
 			"path": "pages/detail/index",
 			"style": {
 				"navigationBarTitleText": "店舗詳細"
 			}
-		},		
+		},
 		{
 			"path": "pages/account/collect",
 			"style": {
 				"navigationBarTitleText": "お気に入り"
 			}
-		},	
+		},
 		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "ホーム"
 			}
-		},	
+		},
 		{
 			"path": "pages/history/index",
 			"style": {
@@ -51,12 +70,7 @@
 				"navigationBarTitleText": "控件"
 			}
 		},
-		{
-			"path": "pages/login/index",
-			"style": {
-				"navigationBarTitleText": "Login"
-			}
-		},
+
 		// {
 		// 	"path": "pages/index/index",
 		// 	"style": {

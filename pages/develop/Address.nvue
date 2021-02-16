@@ -7,6 +7,9 @@
 
 <script>
 	import item from '@/components/index/item.nvue'
+	import {
+		getToken
+	} from '@/common/js/storage.js'
 	export default {
 		computed: {
 			index() {
@@ -29,6 +32,21 @@
 		},
 		onLoad() {
 			this.load();
+			//判断是否登录，是的话直接跳转
+			console.log('getToken ----', getToken)
+			let token = getToken()
+			console.log('token', token)
+			if (token) {
+				console.log('有token，直接跳转到地址页面')
+				uni.reLaunch({
+					url: "../../pages/develop/address"
+				})
+				return
+			}
+			console.log('没有token，返回登录界面')
+			uni.reLaunch({
+				url: "../../pages/develop/login"
+			})
 		},
 		onShow() {
 			this.refresh();
