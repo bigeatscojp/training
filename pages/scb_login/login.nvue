@@ -33,23 +33,27 @@
 </template>
 
 <script>
+	import {
+		setToken
+	} from '@/common/js/storage.js'
 	export default {
-		data(){
-			return{
-				username:'',
-				password:''
+		data() {
+			return {
+				username: '',
+				password: ''
 			}
 		},
-		methods:{
-			login(){
+		methods: {
+			login() {
 				console.log(this.username)
 				console.log(this.password)
 				uni.request({
-					url:'/api/login',
-					data:"username="+this.username+"&password="+this.password,
-					success(data){
+					url: '/api/login',
+					data: "username=" + this.username + "&password=" + this.password,
+					success(data) {
 						console.log(data)
 						alert('success')
+						setToken(data)
 					}
 				})
 			}
@@ -66,12 +70,14 @@
 	.c-login {
 		flex: 1;
 	}
+
 	/*  #endif  */
 
 	/*  #ifndef APP-NVUE  */
 	.c-login {
 		height: 100%;
 	}
+
 	/*  #endif  */
 
 	.l-group__text,
@@ -83,14 +89,14 @@
 		justify-content: center;
 		color: gray;
 	}
-	
+
 	.l-group__text,
-	.l-group__input{
+	.l-group__input {
 		margin-bottom: 12rpx;
 		font-size: 32rpx;
 	}
 
-	.c-group__input{
+	.c-group__input {
 		background-color: #C8C7CC;
 	}
 
@@ -100,5 +106,9 @@
 
 	.c-login__bottom {
 		margin-bottom: 80rpx;
+	}
+
+	.c-bottom__text {
+		color: #4CD964;
 	}
 </style>

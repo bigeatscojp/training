@@ -9,8 +9,8 @@ import { getLang } from '@/common/js/storage.js'
 //任務参
 import mockjs from 'mockjs'
 import mockTest from '@/common/js/mock_test.js'
-console.log(mockjs)
-console.log(mockTest)
+console.log('mockjs='+ mockjs)
+console.log('mockTest='+ mockTest)
 
 for(let i=0;i<mockTest.length;i++){
 	mockjs.mock(mockTest[i].url,mockTest[i].data)
