@@ -2,22 +2,28 @@
 	<view class="c-login">
 		<view class="c-login__top">
 			<view class="l-login__title">
-				<text class="c-login__title">携帯番号またはメールアドレス</text>
+				<text class="c-login__title">{{i18n.username_text}}</text>
 			</view>
 			<view class="l-login__input">
-				<input class="c-login__textBox" v-model="username" />
+				<input class="c-login__input" v-model="username" />
 			</view>
 			<view class="l-login__title">
-				<text class="c-login__title">パスワード</text>
+				<text class="c-login__title">{{i18n.password_text}}</text>
 			</view>
 			<view class="l-login__input">
-				<input class="c-login__textBox" v-model="password" type="password" />
+				<input class="c-login__input" v-model="password" type="password" />
 			</view>
 		</view>
 		<view class="c-login__bottom">
-			<button class="c-login__button" v-on:click="login">ログイン</button>
-			<text class="c-login__bottomText">by proceeding, you agree to these</text>
-			<text class="c-login__bottomText">Terms and Conditions</text>
+			<view class="l-login__button">
+				<button class="c-login__button" v-on:click="login">{{i18n.button_text}}</button>
+			</view>
+			<view class="l-login__bottom-text">
+				<text class="c-login__bottom-text">{{bottom_text1}}</text>
+			</view>
+			<view class="l-login__bottom-text">
+				<text class="c-login__bottom-text">{{bottom_text2}}</text>
+			</view>
 		</view>
 	</view>
 
@@ -27,9 +33,23 @@
 	import {
 		domain
 	} from '@/api/domain.js'
+	import {
+		getToken
+	} from '@/common/js/storage.js'
+	const globalData = getApp().globalData
 	export default {
+		computed: {
+			i18n() {
+				return globalData.$t('login')
+			}
+		},
 		data() {
 			return {
+				username_text: '',
+				password_text: '',
+				button_text: '',
+				bottom_text1: 'by proceeding, you agree to these',
+				bottom_text2: 'Terms and Conditions',
 				username: '',
 				password: ''
 			}
@@ -46,7 +66,26 @@
 						alert('success')
 					}
 				})
+				uni.navigateTo({
+					url: "../../pages/develop/Address"
+				})
 			}
+		},
+		onLoad() {
+			//判断是否登录，是的话直接跳转
+			console.log('getToken ----', getToken)
+			let token = getToken()
+			console.log('token', token)
+			if (token) {
+				console.log('有token，直接跳转')
+				uni.reLaunch({
+					url: this.url
+				})
+				uni.hideLoading()
+				return
+			}
+			console.log('没有token，保留')
+			uni.hideLoading()
 		}
 	}
 </script>
@@ -69,12 +108,23 @@
 
 	/*  #endif  */
 	.l-login__title,
-	.l-login__input {
+	.l-login__input,
+	.l-login__button,
+	.l-login__bottom-text {
 		width: 750rpx;
 		flex-direction: row;
 		justify-content: center;
+	}
 
-		border: 1rpx solid #555555;
+	.c-login__title {
+		color: #B4B4B4;
+	}
+
+	.c-login__input {
+		height: 50rpx;
+		width: 400rpx;
+		border-radius: 9px;
+		background-color: #F3F3F3;
 	}
 
 	.c-login__top {
@@ -85,11 +135,14 @@
 		padding-bottom: 80rpx;
 	}
 
-	.l-login__input {
-		border: 1rpx solid red;
+	.c-login__button {
+		width: 300rpx;
+		border-radius: 15px;
+		background-color: #FCCC00;
+		font-weight: bold;
 	}
 
-	.c-login__textBox {
-		background-color: #555555;
+	.c-login__bottom-text {
+		color: #B4B4B4;
 	}
 </style>

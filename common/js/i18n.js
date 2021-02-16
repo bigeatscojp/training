@@ -72,6 +72,11 @@ const i18nMessage = {
 		// 后台接口返回信息国际化
 		api: {
 			// 具体的规范需要和后端协调后才定
+		},
+		login: {
+			username_text: '携帯番号またはメールアドレス',
+			password_text: 'パスワード',
+			button_text: 'ログイン'
 		}
 	},
 	// 简体中文
