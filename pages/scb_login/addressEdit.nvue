@@ -1,0 +1,120 @@
+<template>
+	<view class="c-main">
+
+		<view class="c-text">
+
+			<view class="l-text__tittle">
+				<text class="c-text__tittle">{{ sendNameTittle }}</text>
+			</view>
+
+			<view class:"l-text__input">
+				<input class="c-text__input" v-model="sendName" placeholder="お届け先名を入力してください" />
+			</view>
+
+			<view class="l-text__tittle">
+				<text class="c-text__tittle">{{ mailTittle }}</text>
+			</view>
+
+			<view class:"l-text__input">
+				<input class="c-text__input" v-model="mail" 　placeholder="郵便番号を入力してください" />
+			</view>
+
+			<view class="l-text__tittle">
+				<text class="c-text__tittle">{{ addressTittle }}</text>
+			</view>
+
+			<view class:"l-text__input">
+				<input class="c-text__input" v-model="address" 　placeholder="アドレスを入力してください" />
+			</view>
+
+			<view class="l-text__tittle">
+				<text class="c-text__tittle">{{ nameTittle }}</text>
+			</view>
+
+			<view class:"l-text__input">
+				<input class="c-text__input" v-model="name" 　placeholder="お名前を入力してください" />
+			</view>
+
+			<view class="l-text__tittle">
+				<text class="c-text__tittle">{{ telTittle }}</text>
+			</view>
+
+			<view class:"l-text__input">
+				<input class="c-text__input" v-model="tel" 　placeholder="電話番号を入力してください" />
+			</view>
+
+		</view>
+
+		<view class="l-button">
+			<button class="c-button" v-on:click="safe">保存する</button>
+		</view>
+
+	</view>
+
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				sendNameTittle: "お届け先名",
+				sendName: "",
+				mailTittle: "郵便番号",
+				mail: '',
+				addressTittle: "アドレス",
+				address: "",
+				nameTittle: "お名前",
+				name: "",
+				telTittle: "電話番号",
+				tel: '',
+				index: ''
+			}
+		},
+		onLoad(obj) {
+			console.log('edit' + obj)
+			this.index = obj.index
+			this.sendName = obj.sendName
+			this.mail = obj.mail
+			this.address = obj.address
+			this.name = obj.name
+			this.tel = obj.tel
+		},
+		methods: {
+			safe: function() {
+				console.log('safe')
+				this.$store.commit('setIndex', this.index)
+				this.$store.commit('setSendName', this.sendName)
+				this.$store.commit('setMail', this.mail)
+				this.$store.commit('setAddress', this.address)
+				this.$store.commit('setName', this.name)
+				this.$store.commit('setTel', this.tel)
+				uni.navigateBack({})
+			}
+		}
+	}
+</script>
+
+<style>
+	.c-main {
+		padding: 12px;
+	}
+
+	.c-text__tittle,
+	.c-text__input {
+		font-size: 16px;
+	}
+
+	.c-text__tittle {
+		color: #DD524D;
+	}
+
+	.c-text__input {
+		padding-top: 2px;
+		padding-bottom: 6px;
+		border-bottom: 2rpx solid #808080;
+	}
+
+	.l-button {
+		margin-top: 50px;
+	}
+</style>

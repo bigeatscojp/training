@@ -1,0 +1,74 @@
+<template>
+	<view class="c-main" v-on:tap="edit">
+		<view class="l-title__sendname">
+			<text class="c-title__text">{{ sendName }}</text>
+		</view>
+		<view class="l-title__address">
+			<text class="c-title__text">{{ address }}</text>
+		</view>
+		<view class="c-bottom">
+			<view class="l-title__name">
+				<text class="c-title__text">{{ name }}</text>
+			</view>
+			<view class="l-title__tel">
+				<text class="c-title__text">{{ tel }}</text>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		props: {
+			//可以是数组或对象，用于接收来自父组件的数据
+			index: {
+				type: Number
+			},
+			sendName: {
+				type: String,
+				default () {
+					return "自宅"
+				}
+			},
+			address: {
+				type: String,
+				default () {
+					return "東京"
+				}
+			},
+			name: {
+				type: String,
+				default () {
+					return "原田"
+				}
+			},
+			tel: {
+				type: String,
+				default () {
+					return "1158222"
+				}
+			}
+		},
+		methods: {
+			edit() {
+				console.log(this.index)
+				uni.navigateTo({
+					url: '../../pages/scb_login/addressEdit?index=' + this.index + "&sendName=" + this.sendName + "&address=" + this.address +
+						"&name=" + this.name + "&tel=" + this.tel
+				})
+			}
+		}
+	}
+</script>
+
+<style>
+	.c-main {
+		padding: 10px;
+		border-bottom: 2px solid #F0AD4E;
+	}
+
+	.c-title__text{
+		font-size: 16rpx;
+		color: #9E9E9E;
+	}
+</style>

@@ -29,7 +29,6 @@ export function getToken() {
 }
 
 export function setToken(token) {
-	console.log('TOKEN_KEY='+ token);
 	uni.setStorageSync(TOKEN_KEY, token);
 }
 

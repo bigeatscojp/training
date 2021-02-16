@@ -7,6 +7,18 @@
 			}
 		},
 		{
+			"path": "pages/scb_login/address",
+			"style": {
+				"navigationBarTitleText": "お届け先"
+			}
+		},
+		{
+			"path": "pages/scb_login/addressEdit",
+			"style": {
+				"navigationBarTitleText": "新規お届け先"
+			}
+		},
+		{
 			"path": "pages/demo/all_page",
 			"style": {
 				"navigationBarTitleText": "所有页面"
