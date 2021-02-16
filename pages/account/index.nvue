@@ -23,6 +23,7 @@
 				<button type="primary" class="c-login__button c-button" v-on:click="submit">
 					<text class="c-button__text">login</text>
 				</button>
+<!-- 				 <button id="btn">获取</button> -->
 			</view>
 			<view class="l-login__message">
 				<text class="c-login__message">By proceeding, you agree to these </text>
@@ -33,8 +34,64 @@
 		</view>
 	</view>
 </template>
-
+	// <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+	//     <!-- 这里引入mock.js文件 -->
+	//     <script src="https://cdn.bootcss.com/Mock.js/1.0.1-beta3/mock-min.js"></script>
 <script>
+	 // Mock.mock('./StudentInfo.do', "get", {
+	 //            'list|4': [{
+	 //                'id|+1': 1,              //对象的id属性名依次加1
+	 //                "name": '@cname()',     //随机产生一个中文名
+	 //                addr: '@county(true)',   //随机产生一个地址
+	 //                'age|18-60': 1,         //随机产生一个数字 （范围在18~60之间）
+	 //                birth: '@date()',       //随机产生一个日期
+	 //                sex: '@integer(0, 1)',  //随机产生一个数学（0/1，0代表男，1代表女）
+	 //                email: '@EMAIL()',      //随机产生一个邮箱地址
+	 //                'like|1':['看书','运动','听音乐'],//在数组中随机选择一个
+	 //                'num1|1-100.2': 1,          //1~100中随机产生一个数字并保留两位小数
+	 //                mobile: /^1[3-9][0-9]{9}$/  //以正则产生一个手机号
+	 //            }]
+	 //        })
+	 //        btn.onclick = function () {
+	         
+	 //            $.ajax({
+	 //                type: "get",		//请求的方式
+	 //                url: "./StudentInfo.do",         //请求地址
+	 //                dataType: "json",   //将服务器返回的数据转换为json对象
+	 //                data: {},  //传递给后台的参数 若没有可不写
+	 //                success: function (data) {
+	 //                    //这里写获得数据后需要执行的代码  e就是从后台获得的json对象；
+	 //                    console.log(data);
+	 //                }, asynh: true       //设置使用同步或异步  ，可不写默认为异步
+	 //            })
+	 //        }
+	 
+// import {
+// 		mapState,
+// 		mapMutations
+// 	} from 'vuex';
+// 	export default {
+// 		computed: mapState([ 'hasLogin','uerInfo']),
+// 		methods: {
+// 			...mapMutations(['logout']),
+// 			bindLogin() {
+// 				if (this.hasLogin) {
+// 					this.logout()
+// 				} else {
+// 					uni.navigateTo({
+// 						url: '/pages/account/index'
+// 					})
+// 				}
+// 			}
+// 		}
+// 	}
+
+ import {
+        mapMutations
+    } from 'vuex';
+
+    
+
 	import Mock from 'mockjs'
 	// Get the globalData
 	const globalData = getApp().globalData
@@ -53,7 +110,8 @@
 		data() {
 			return {
 				username: '',
-				password: ''
+				password: '',
+				loading: false
 			}
 		},
 		methods: {
@@ -90,7 +148,7 @@
 					uni.navigateTo({
 						url: '../address/index'
 					})
-			}
+			},
 		}
 	}
 </script>
@@ -118,7 +176,7 @@
 	.l-group__text,
 	.l-group__input,
 	.l-login__message,
-	.l-login__button {
+	.c-login__button {
 		width: 750rpx;
 		flex-direction: row;
 		justify-content: center;

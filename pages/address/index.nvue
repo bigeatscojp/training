@@ -77,6 +77,10 @@
 				// 	},
 			}
 		},
+		onLoad : function() {
+				var loginRes = this.checkLogin();
+				if(!loginRes){return false;}
+			},
 		methods: {
 			load: function() {
 				for (let i = 0; i < 3; i++) {
