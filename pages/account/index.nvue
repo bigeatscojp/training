@@ -1,63 +1,63 @@
 <template>
 	<view class="c-login">
-			<view class="c-login__top">
-				<view class="c-group">
-					<view class="l-group__text">
-						<text class="c-group__text">{{i18n.username}}</text>
-					</view>
-					<view class="l-group__input">
-						<input type="text" class="c-group__input" v-model="username">
-					</view>
+		<view class="c-login__top">
+			<view class="c-group">
+				<view class="l-group__text">
+					<text class="c-group__text">{{i18n.username}}</text>
 				</view>
-				<view class="c-group">
-					<view class="l-group__text">
-						<text class="c-group__text">{{i18n.password}}</text>
-					</view>
-					<view class="l-group__input">
-						<input class="c-group__input" type="password" v-model="password">
-					</view>
-				</view>			
+				<view class="l-group__input">
+					<input type="text" class="c-group__input" v-model="username">
+				</view>
 			</view>
-			<view class="c-login__bottom">
-				<view class="l-login__button">
-					<button type="primary" class="c-login__button c-button" v-on:click="submit">
-						<text class="c-button__text">login</text>
-					</button>
+			<view class="c-group">
+				<view class="l-group__text">
+					<text class="c-group__text">{{i18n.password}}</text>
 				</view>
-				<view class="l-login__message">
-					<text class="c-login__message">By proceeding, you agree to these </text>
+				<view class="l-group__input">
+					<input class="c-group__input" type="password" v-model="password">
 				</view>
-				<view class="l-login__message">
-					<text class="c-login__message">Terms and Conditions</text>
-				</view>			
 			</view>
 		</view>
+		<view class="c-login__bottom">
+			<view class="l-login__button">
+				<button type="primary" class="c-login__button c-button" v-on:click="submit">
+					<text class="c-button__text">login</text>
+				</button>
+			</view>
+			<view class="l-login__message">
+				<text class="c-login__message">By proceeding, you agree to these </text>
+			</view>
+			<view class="l-login__message">
+				<text class="c-login__message">Terms and Conditions</text>
+			</view>
+		</view>
+	</view>
 </template>
 
 <script>
 	import Mock from 'mockjs'
 	// Get the globalData
-	const globalData = getApp().globalData		
+	const globalData = getApp().globalData
 	export default {
-		computed:{
-			i18n(){
+		computed: {
+			i18n() {
 				// return this.$t('login')
 				return globalData.$t('login')
 			},
-			numText(){
-				return globalData.$t('login.numText',{
-					num:10
+			numText() {
+				return globalData.$t('login.numText', {
+					num: 10
 				})
 			},
 		},
-		data(){
+		data() {
 			return {
-				username:'',
-				password:''
+				username: '',
+				password: ''
 			}
 		},
-		methods:{
-			submit(){
+		methods: {
+			submit() {
 				console.log(this.username)
 				console.log(this.password)
 				// uni.request({
@@ -69,19 +69,24 @@
 				// 	}
 				// })
 				// 返回空数组, 代表校验通过
-				const res = Mock.valid(
-					{ username: 'test', password: '123' },
-					{ username: this.username, password: this.password }
-				);
-				
+				const res = Mock.valid({
+					username: 'test',
+					password: '123'
+				}, {
+					username: this.username,
+					password: this.password
+				});
+
 				// 如果为空数组即验证通过则返回token
 				const token = !res.length ? 'qwerty' : null;
-				
+
 				// 修改状态, 存储token
-				!res && this.$store.commit('login', { token });
-				
+				!res && this.$store.commit('login', {
+					token
+				});
+
 				// 跳转
-				if(token) 
+				if (token)
 					uni.navigateTo({
 						url: '../address/index'
 					})
@@ -90,44 +95,63 @@
 	}
 </script>
 
-<style lang="scss" scoped>	
+<style lang="scss" scoped>
 	.c-login {
-		justify-content: space-between;		
+		justify-content: space-between;
 	}
+
 	/*  #ifdef APP-NVUE  */
 	.c-login {
 		flex: 1;
 	}
-	/*  #endif  */	
+
+	/*  #endif  */
 	/*  #ifndef APP-NVUE  */
 	.c-login {
 		height: 100%;
-	}	
-	/*  #endif  */	
-	
-	.c-group {
-
 	}
+
+	/*  #endif  */
+
+	.c-group {}
+
 	.l-group__text,
 	.l-group__input,
 	.l-login__message,
-	.l-login__button{
+	.l-login__button {
 		width: 750rpx;
 		flex-direction: row;
-		justify-content: center;		
+		justify-content: center;
 	}
+
+	.c-group__text {
+		color: $color-gray-1;
+		font-size: $font-small-3;
+		text-align: center;
+	}
+
 	.c-group__input {
-	  /* 圆角 */
-	  border-radius: 6px;
-	  background: #f3f3f3;
-	  margin: 0px auto;
-	  height: 35px;
-	  width: 250px;
-	  border: 0;
+		/* 圆角 */
+		border-radius: 6px;
+		background-color: $color-gray-2;
+		// margin: 0px auto;
+		height: 35px;
+		width: 250px;
+		// border: 0;
 	}
+
+	.c-login__message {
+		color: $color-gray-1;
+		font-size: $font-small-3;
+		text-align: center;
+		//display: flex;
+		justify-content: center;
+	}
+
 	.c-login__top {
 		margin-top: 80rpx;
 	}
+
 	.c-login__bottom {
 		padding-bottom: 80rpx;
 	}

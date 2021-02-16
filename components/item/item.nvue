@@ -64,15 +64,23 @@
 </script>
 
 <style>
+
 	.addressItemList {
 		padding: 10px;
 		background-color: #fff;
-		border-bottom: 10px solid #f3f3f3;
+			/*  #ifdef APP-NVUE  */
+	/* 	border-bottom: 10px solid #f3f3f3; */
+		border-bottom-width: 10px;
+		border-bottom-color: #f3f3f3;
+		/* #endif */ 
 		height: 120px;
 		width: 340px;
 	}
 	.classification {
-		border: solid 2px #ffc300;
+/* 		border: solid 2px #ffc300; */
+		border-width: 2px;  
+		    border-style: solid;  
+		    border-color: #ffc300;  
 		padding: 6px;
 		height: 8px;
 		width: 40px;
@@ -89,4 +97,5 @@
 	.nameAndTel {
 		font-size: 10px;
 	}
+
 </style>

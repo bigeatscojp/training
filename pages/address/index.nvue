@@ -113,6 +113,8 @@
 </script>
 
 <style>
+	    /* #ifndef APP-PLUS-NVUE */  
+
 	.top {
 		height: 30px;
 		background-color: #f3f3f3;
@@ -129,7 +131,10 @@
 	}
 	.addressDiv {
 		padding: 10px;
+		/* #ifndef APP-PLUS-NVUE */
+
 		background-color: #fff;
+		/* #endif */
 		border-bottom: 10px solid #f3f3f3;
 		height: 120px;
 		width: 340px;
@@ -152,4 +157,6 @@
 	.nameAndTel {
 		font-size: 10px;
 	}
+	/*  这里写vue专用的样式 */
+	/* #endif */ 
 </style>
