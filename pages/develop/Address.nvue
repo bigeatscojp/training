@@ -37,10 +37,7 @@
 			let token = getToken()
 			console.log('token', token)
 			if (token) {
-				console.log('有token，直接跳转到地址页面')
-				uni.reLaunch({
-					url: "../../pages/develop/address"
-				})
+				console.log('有token，停在地址页面')
 				return
 			}
 			console.log('没有token，返回登录界面')

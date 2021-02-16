@@ -30,12 +30,22 @@
 </template>
 
 <script>
+	// import {
+	// 	newLogin
+	// } from '@/api/new_api.js'
 	import {
 		domain
 	} from '@/api/domain.js'
 	import {
-		getToken
+		setToken
 	} from '@/common/js/storage.js'
+	// import {
+	// 	newAccess
+	// } from '@/api/new_request.js'
+	// import {
+	// 	mapMutations
+	// } from 'vuex'
+
 	const globalData = getApp().globalData
 	export default {
 		computed: {
@@ -55,9 +65,12 @@
 			}
 		},
 		methods: {
+			// ...mapMutations(['login']),
 			login() {
 				console.log(this.username)
 				console.log(this.password)
+				setToken(this.username)
+				setToken(this.password)
 				uni.request({
 					url: domain() + 'user/login',
 					data: 'username=' + this.username + '&password=' + this.password,
@@ -66,26 +79,28 @@
 						alert('success')
 					}
 				})
+				// var $this = this
+				// var apiObj = newLogin(this.username, this.password)
+				// newAccess(apiObj, function(data) {
+				// console.log('enter access')
+				// console.log('login', data)
+				// $this.login(data.data)
+				// uni.showToast({
+				// 	icon: 'none',
+				// 	title: data.message
+				// })
+				// console.log('redirect_url', $this.url)
+				// uni.reLaunch({
+				// 	url: $this.url
+				// })
+				// })
 				uni.navigateTo({
-					url: "../../pages/develop/Address"
+					url: "../../pages/develop/address"
 				})
 			}
 		},
 		onLoad() {
-			//判断是否登录，是的话直接跳转
-			console.log('getToken ----', getToken)
-			let token = getToken()
-			console.log('token', token)
-			if (token) {
-				console.log('有token，直接跳转')
-				uni.reLaunch({
-					url: this.url
-				})
-				uni.hideLoading()
-				return
-			}
-			console.log('没有token，保留')
-			uni.hideLoading()
+
 		}
 	}
 </script>
