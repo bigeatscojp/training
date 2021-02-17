@@ -7,6 +7,12 @@
 			}
 		},
 		{
+			"path": "pages/develop/edit",
+			"style": {
+				"navigationBarTitleText": "编辑"
+			}
+		},
+		{
 			"path": "pages/develop/login",
 			"style": {
 				"navigationBarTitleText": "登录"

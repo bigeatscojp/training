@@ -69,33 +69,16 @@
 			login() {
 				console.log(this.username)
 				console.log(this.password)
-				setToken(this.username)
-				setToken(this.password)
 				uni.request({
 					url: domain() + 'user/login',
-					data: 'username=' + this.username + '&password=' + this.password,
-					success(data) {
-						console.log(data)
-						alert('success')
+					// data: 'username=' + this.username + '&password=' + this.password,
+					success(res) {
+						console.log(res.data.token)
+						setToken(res.data.token)
+						uni.navigateTo({
+							url: "../../pages/develop/address"
+						})
 					}
-				})
-				// var $this = this
-				// var apiObj = newLogin(this.username, this.password)
-				// newAccess(apiObj, function(data) {
-				// console.log('enter access')
-				// console.log('login', data)
-				// $this.login(data.data)
-				// uni.showToast({
-				// 	icon: 'none',
-				// 	title: data.message
-				// })
-				// console.log('redirect_url', $this.url)
-				// uni.reLaunch({
-				// 	url: $this.url
-				// })
-				// })
-				uni.navigateTo({
-					url: "../../pages/develop/address"
 				})
 			}
 		},

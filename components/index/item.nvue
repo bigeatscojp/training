@@ -31,8 +31,7 @@
 		methods: {
 			toEdit() {
 				uni.navigateTo({
-					url: "../../pages/develop/Edit"
-					// url: "../../pages/develop/Edit?index=" + this.index + "&name=" + this.name + "&address=" + this.address
+					url: "../../pages/develop/edit"
 				})
 				this.$emit('toEdit', {
 					name: this.name
