@@ -125,17 +125,13 @@
 				console.log(this.username)
 				console.log(this.password)
 				uni.request({
-					// url:domain()+'api/login',
-					url:'/api/login',
+					 url:domain()+'api/login',
+					//url:'/api/login',
 					//data:'username='+this.username+"&password="+this.password,
 					success(mock){
 						console.log(mock.data.token)
-						console.log(mock.mock)
-						console.log(mock)
-						console.log(mock.token)
-						//console.log(mock)
 						console.log('有token')
-						setToken(mock.token)
+						setToken(mock.data.token)
 						// alert('success')
 						uni.navigateTo({
 								url: '../address/index'

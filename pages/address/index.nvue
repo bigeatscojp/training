@@ -47,6 +47,10 @@
 						url: '../account/index'
 					})
 			}
+			if(token){
+				console.log('有token')
+				}
+				
 		},
 		onShow() {
 			this.refresh()
