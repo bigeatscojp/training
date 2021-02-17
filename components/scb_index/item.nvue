@@ -64,7 +64,8 @@
 <style>
 	.c-main {
 		padding: 10px;
-		border-bottom: 2px solid #F0AD4E;
+		border-bottom-color: #F0AD4E;
+		border-bottom-width: 2rpx;
 	}
 
 	.c-title__text{

@@ -36,6 +36,9 @@
 	import {
 		setToken
 	} from '@/common/js/storage.js'
+	import {
+		domain
+	} from '@/api/domain.js'
 	export default {
 		data() {
 			return {
@@ -48,16 +51,19 @@
 				console.log(this.username)
 				console.log(this.password)
 				uni.request({
-					url: '/api/login',
+					url: domain()+'user/login',
 					data: "username=" + this.username + "&password=" + this.password,
 					success(data) {
 						console.log(data)
-						alert('success')
+						console.log('success')
 						console.log(data.data.token)
 						setToken(data.data.token)
 						uni.redirectTo({
 							url: '../../pages/scb_login/address'
 						})
+					},
+					fail(data) {
+						console.log("failure",data)
 					}
 				})
 			}
@@ -91,7 +97,6 @@
 		width: 750rpx;
 		flex-direction: row;
 		justify-content: center;
-		color: gray;
 	}
 
 	.l-group__text,
@@ -100,8 +105,14 @@
 		font-size: 32rpx;
 	}
 
+	.c-group__text {
+		color: gray;
+	}
+
 	.c-group__input {
 		background-color: #C8C7CC;
+		width: 300rpx;
+		color: gray;
 	}
 
 	.c-login__top {

@@ -7,14 +7,14 @@ import { getI18nMessage, getDefaultLocale } from '@/common/js/i18n.js'
 import { getLang } from '@/common/js/storage.js'
 
 //任務参
-import mockjs from 'mockjs'
-import mockTest from '@/common/js/mock_test.js'
-console.log('mockjs='+ mockjs)
-console.log('mockTest='+ mockTest)
+// import mockjs from 'mockjs'
+// import mockTest from '@/common/js/mock_test.js'
+// console.log('mockjs='+ mockjs)
+// console.log('mockTest='+ mockTest)
 
-for(let i=0;i<mockTest.length;i++){
-	mockjs.mock(mockTest[i].url,mockTest[i].data)
-}
+// for(let i=0;i<mockTest.length;i++){
+// 	mockjs.mock(mockTest[i].url,mockTest[i].data)
+// }
 
 Vue.use(VueI18n)  
 

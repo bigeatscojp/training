@@ -7,7 +7,7 @@
 				<text class="c-text__tittle">{{ sendNameTittle }}</text>
 			</view>
 
-			<view class:"l-text__input">
+			<view class="l-text__input">
 				<input class="c-text__input" v-model="sendName" placeholder="お届け先名を入力してください" />
 			</view>
 
@@ -15,7 +15,7 @@
 				<text class="c-text__tittle">{{ mailTittle }}</text>
 			</view>
 
-			<view class:"l-text__input">
+			<view class="l-text__input">
 				<input class="c-text__input" v-model="mail" 　placeholder="郵便番号を入力してください" />
 			</view>
 
@@ -23,7 +23,7 @@
 				<text class="c-text__tittle">{{ addressTittle }}</text>
 			</view>
 
-			<view class:"l-text__input">
+			<view class="l-text__input">
 				<input class="c-text__input" v-model="address" 　placeholder="アドレスを入力してください" />
 			</view>
 
@@ -31,7 +31,7 @@
 				<text class="c-text__tittle">{{ nameTittle }}</text>
 			</view>
 
-			<view class:"l-text__input">
+			<view class="l-text__input">
 				<input class="c-text__input" v-model="name" 　placeholder="お名前を入力してください" />
 			</view>
 
@@ -39,7 +39,7 @@
 				<text class="c-text__tittle">{{ telTittle }}</text>
 			</view>
 
-			<view class:"l-text__input">
+			<view class="l-text__input">
 				<input class="c-text__input" v-model="tel" 　placeholder="電話番号を入力してください" />
 			</view>
 
@@ -111,7 +111,8 @@
 	.c-text__input {
 		padding-top: 2px;
 		padding-bottom: 6px;
-		border-bottom: 2rpx solid #808080;
+		border-bottom-color: #808080;
+		border-bottom-width: 2rpx;
 	}
 
 	.l-button {
