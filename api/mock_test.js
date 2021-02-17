@@ -6,8 +6,7 @@ import {
 } from './domain'
 // Mock的总开关，true开启，false关闭
 const isMock = true;
-let mockList = [
-	{
+let mockList = [{
 		url: 'user/login',
 		// 标记是否要开启mock
 		isMock: true,
@@ -15,7 +14,16 @@ let mockList = [
 		mock: {
 			"string|1-10": "★"
 		}
-	},		
+	},
+	{
+		url: 'api/login',
+		isMock: true,
+		mock: {
+			status: 200,
+			message: '操作失败',
+			token:'token'
+		}
+	},
 	// 其他api...
 ]
 
@@ -27,9 +35,9 @@ const mockFun = () => {
 			if (item.isMock) {
 				// console.log('do')
 				Mock.mock(item.url, item.mock)
-			}			
+			}
 		})
-	}	
+	}
 }
 
 module.exports = {

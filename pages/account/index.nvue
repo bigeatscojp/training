@@ -90,9 +90,15 @@
         mapMutations
     } from 'vuex';
 
-    
+    import {
+    	domain
+    } from '@/api/domain.js'
+	import{
+		setToken
+		}from '@/common/js/storage.js'
+		
 
-	import Mock from 'mockjs'
+	// import Mock from 'mockjs'
 	// Get the globalData
 	const globalData = getApp().globalData
 	export default {
@@ -118,36 +124,46 @@
 			submit() {
 				console.log(this.username)
 				console.log(this.password)
-				// uni.request({
-				// 	url:'/api/login',
-				// 	data:'username='+this.username+"&password="+this.password,
-				// 	success(data){
-				// 		console.log(data)
-				// 		alert('success')
-				// 	}
-				// })
+				uni.request({
+					// url:domain()+'api/login',
+					url:'/api/login',
+					//data:'username='+this.username+"&password="+this.password,
+					success(mock){
+						console.log(mock.data.token)
+						console.log(mock.mock)
+						console.log(mock)
+						console.log(mock.token)
+						//console.log(mock)
+						console.log('有token')
+						setToken(mock.token)
+						// alert('success')
+						uni.navigateTo({
+								url: '../address/index'
+							})
+					}
+				})
 				// 返回空数组, 代表校验通过
-				const res = Mock.valid({
-					username: 'test',
-					password: '123'
-				}, {
-					username: this.username,
-					password: this.password
-				});
+				// const res = Mock.valid({
+				// 	username: 'test',
+				// 	password: '123'
+				// }, {
+				// 	username: this.username,
+				// 	password: this.password
+				// });
 
 				// 如果为空数组即验证通过则返回token
-				const token = !res.length ? 'qwerty' : null;
+				// const token = !res.length ? 'qwerty' : null;
 
-				// 修改状态, 存储token
-				!res && this.$store.commit('login', {
-					token
-				});
+				// // 修改状态, 存储token
+				// !res && this.$store.commit('login', {
+				// 	token
+				// });
 
-				// 跳转
-				if (token)
-					uni.navigateTo({
-						url: '../address/index'
-					})
+				// // 跳转
+				// if (token)
+				// 	uni.navigateTo({
+				// 		url: '../address/index'
+				// 	})
 			},
 		}
 	}
@@ -158,18 +174,14 @@
 		justify-content: space-between;
 	}
 
-	/*  #ifdef APP-NVUE  */
 	.c-login {
 		flex: 1;
 	}
 
-	/*  #endif  */
-	/*  #ifndef APP-NVUE  */
 	.c-login {
 		height: 100%;
 	}
 
-	/*  #endif  */
 
 	.c-group {}
 

@@ -12,15 +12,15 @@ import {
 import {
 	getLang
 } from '@/common/js/storage.js'
-import mockjs from 'mockjs'
-import mockTest from '@/common/js/mock_test.js'
+// import mockjs from 'mockjs'
+// import mockTest from '@/common/js/mock_test.js'
 import redirect from '@/common/js/redirect.js'
 
-console.log(mockjs)
-console.log(mockTest)
-for (let i = 0; i < mockTest.length; i++) {
-	mockjs.mock(mockTest[i].url, mockTest[i].data)
-}
+// console.log(mockjs)
+// console.log(mockTest)
+// for (let i = 0; i < mockTest.length; i++) {
+// 	mockjs.mock(mockTest[i].url, mockTest[i].data)
+// }
 Vue.use(VueI18n)
 
 // 使用vuex的简单store模式 https://ask.dcloud.net.cn/article/35021
@@ -52,19 +52,17 @@ const app = new Vue({
 })
 app.$mount()
 
-Vue.prototype.checkLogin = function(){
-	let token = getToken();
-	// var SUID  = uni.getStorageSync('SUID');
-	// var SRAND = uni.getStorageSync('SRAND');
-	if(!token){
-		uni.redirectTo({url:'/pages/account/index.nvue'});
-		return false;
-
-	else{
-		
-	}
-}}
-	return [token];
+// Vue.prototype.checkLogin = function(){
+// 	let token = getToken();
+// 	console.log('token',token)
+// 	// var SUID  = uni.getStorageSync('SUID');
+// 	// var SRAND = uni.getStorageSync('SRAND');
+// 	if(!token){
+// 		console.log('没有token')
+// 		uni.redirectTo({url:'/pages/account/index.nvue'});
+// 		return false;
+//     }
+// }
 
 // router.beforeEach((to, from, next) => {
 // 	if (to.matched.some(record => record.meta.requireAuth)) { // 判断该路由是否需要登录权限
